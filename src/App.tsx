@@ -53,8 +53,6 @@ function App() {
         )}
       </button>
 
-
-
       <HeroSection />
       <ProfitOpportunities />
       <WealthEngines />

@@ -4,7 +4,7 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/GrahamTheFoodSafetyExpert/', // Set base for GitHub Pages deployment
+  base: '/', // Use root for local development
   plugins: [react()],
   resolve: {
     alias: {
