@@ -4,6 +4,7 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/GrahamTheFoodSafetyExpert/', // Set base for GitHub Pages deployment
   plugins: [react()],
   resolve: {
     alias: {
