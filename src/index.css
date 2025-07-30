@@ -60,21 +60,13 @@
     --blue: 200 100% 22%;
   }
 
-  * {
-    @apply border-custom-border;
-  }
-
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
   }
 }
 
-@layer utilities {
-  .border-custom-border {
-    border-color: #C0C6D1;
-  }
-}
+
 
 @layer components {
   .gradient-text {

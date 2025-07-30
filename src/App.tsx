@@ -39,7 +39,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Theme Toggle Button */}
       <button
         onClick={toggleTheme}
@@ -52,6 +52,8 @@ function App() {
           <Moon className="w-5 h-5 text-gray-700" />
         )}
       </button>
+
+
 
       <HeroSection />
       <ProfitOpportunities />

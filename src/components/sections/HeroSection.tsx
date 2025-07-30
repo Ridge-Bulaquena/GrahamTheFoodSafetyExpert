@@ -5,45 +5,8 @@ import { Badge } from '@/components/ui/badge';
 import { ChevronDown, DollarSign, Shield, CheckCircle, TrendingUp } from 'lucide-react';
 
 const HeroSection = () => {
-  const floatingIcons = [
-    { Icon: DollarSign, delay: 0, x: 100, y: 50, color: 'text-gold' },
-    { Icon: Shield, delay: 0.5, x: -80, y: 80, color: 'text-orange' },
-    { Icon: CheckCircle, delay: 1, x: 120, y: -60, color: 'text-blue' },
-    { Icon: TrendingUp, delay: 1.5, x: -100, y: -40, color: 'text-gold' },
-  ];
-
   return (
     <section className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-black text-gray-900 dark:text-white relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        {floatingIcons.map(({ Icon, delay, x, y, color }, index) => (
-          <motion.div
-            key={index}
-            className={`absolute opacity-10 ${color}`}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ 
-              opacity: 0.1, 
-              scale: 1,
-              x: [0, x, 0],
-              y: [0, y, 0],
-            }}
-            transition={{
-              duration: 8,
-              delay,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut"
-            }}
-            style={{
-              left: `${20 + (index * 20)}%`,
-              top: `${30 + (index * 15)}%`,
-            }}
-          >
-            <Icon size={80} />
-          </motion.div>
-        ))}
-      </div>
-
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-6 py-20 flex flex-col items-center justify-center min-h-screen text-center">
         <motion.div
