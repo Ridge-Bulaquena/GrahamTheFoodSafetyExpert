@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Star, Quote, Building, Award, Users, TrendingUp } from 'lucide-react';
+import { useAnimatedCounter } from '@/hooks/useAnimatedCounter';
+import { useInView } from 'react-intersection-observer';
+import { Star, DollarSign, AlertTriangle, TrendingUp } from 'lucide-react';
 
 const ProofAuthority = () => {
   const [ref, inView] = useInView({
@@ -11,210 +12,204 @@ const ProofAuthority = () => {
     threshold: 0.1,
   });
 
+  const recallCost = useAnimatedCounter(inView ? 2500000 : 0, 2000);
+  const lawsuits = useAnimatedCounter(inView ? 150 : 0, 2000);
+  const settlements = useAnimatedCounter(inView ? 5000000 : 0, 2000);
+
   const testimonials = [
     {
-      name: "Sarah Mitchell",
-      title: "Restaurant Chain Owner",
-      company: "Mitchell's Gourmet",
-      content: "Graham's expertise saved us $300K in potential recall costs and increased our revenue by 40% through premium certifications.",
-      rating: 5,
-      image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
+      name: "Sarah Chen",
+      role: "Restaurant Owner",
+      company: "Golden Dragon",
+      content: "Graham's food safety strategies helped us increase our average check by 23% while reducing compliance costs by 40%. The ROI was immediate.",
+      rating: 5
     },
     {
-      name: "David Chen",
-      title: "Food Distributor",
-      company: "Pacific Foods Distribution",
-      content: "The ROI from Graham's consultation was immediate. We're now the preferred supplier for major grocery chains.",
-      rating: 5,
-      image: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
+      name: "Michael Rodriguez",
+      role: "Supply Chain Director",
+      company: "FreshCo Foods",
+      content: "We secured a $2.5M contract with a major hotel chain thanks to Graham's certification program. His expertise is unmatched.",
+      rating: 5
     },
     {
-      name: "Maria Rodriguez",
-      title: "Quality Assurance Director",
-      company: "Fresh Valley Farms",
-      content: "Graham transformed our entire approach to food safety. We've eliminated violations and increased profit margins by 25%.",
-      rating: 5,
-      image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
+      name: "Jennifer Park",
+      role: "Food Safety Consultant",
+      company: "SafeServe Solutions",
+      content: "Graham's courses transformed my career. I now earn 3x more consulting fees and have a waiting list of clients.",
+      rating: 5
     }
   ];
 
-  const achievements = [
-    {
-      icon: Award,
-      title: "Industry Recognition",
-      items: [
-        "Food Safety Excellence Award 2023",
-        "Top 10 Food Safety Consultants",
-        "Government Advisory Board Member"
-      ]
-    },
-    {
-      icon: Building,
-      title: "Corporate Partnerships",
-      items: [
-        "Fortune 500 Food Companies",
-        "Major Restaurant Chains",
-        "Government Agencies"
-      ]
-    },
-    {
-      icon: Users,
-      title: "Training Impact",
-      items: [
-        "10,000+ Professionals Trained",
-        "500+ Businesses Certified",
-        "98% Success Rate"
-      ]
-    },
-    {
-      icon: TrendingUp,
-      title: "Business Results",
-      items: [
-        "$50M+ Revenue Generated",
-        "Zero Recalls for Clients",
-        "Average 300% ROI"
-      ]
-    }
+  const logos = [
+    { name: "FDA", src: "/fda-logo.png" },
+    { name: "ISO", src: "/iso-logo.png" },
+    { name: "Michelin Guide", src: "/michelin-logo.png" },
+    { name: "BBB", src: "/bbb-logo.png" },
+    { name: "Shangri-La", src: "/shangri-la-logo.png" },
+    { name: "Discovery Shores", src: "/discovery-shores-logo.png" }
   ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
 
   return (
-    <section className="py-20 bg-gray-50" ref={ref}>
+    <section className="py-20 bg-white dark:bg-gray-900" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <Badge variant="orange" className="mb-4">
-            🏆 Proven Track Record
-          </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Trusted by Industry 
-            <span className="bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent"> Leaders</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-serif text-gray-900 dark:text-white">
+            Proof &
+            <span className="bg-gradient-to-r from-gold to-orange bg-clip-text text-transparent"> Authority</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            25+ years of transforming businesses through strategic food safety excellence
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            Real numbers, real results, real authority. See why industry leaders trust Graham's expertise.
           </p>
+        </motion.div>
+
+        {/* Recall Cost Calculator */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <Card className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 border-2 border-red-200 dark:border-red-800">
+            <CardContent className="p-8">
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  📊 Recall Cost Calculator
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  The real cost of food safety failures
+                </p>
+              </div>
+              
+              <div className="grid md:grid-cols-3 gap-6">
+                <motion.div
+                  className="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <DollarSign className="w-8 h-8 text-red-500 mx-auto mb-3" />
+                  <div className="text-3xl font-bold text-red-600 mb-2">
+                    ${recallCost.toLocaleString()}
+                  </div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                    Average Recall Cost
+                  </div>
+                </motion.div>
+                
+                <motion.div
+                  className="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <AlertTriangle className="w-8 h-8 text-orange-500 mx-auto mb-3" />
+                  <div className="text-3xl font-bold text-orange-600 mb-2">
+                    {lawsuits}
+                  </div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                    Lawsuits Filed Daily
+                  </div>
+                </motion.div>
+                
+                <motion.div
+                  className="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <TrendingUp className="w-8 h-8 text-green-500 mx-auto mb-3" />
+                  <div className="text-3xl font-bold text-green-600 mb-2">
+                    ${settlements.toLocaleString()}
+                  </div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                    Average Settlement
+                  </div>
+                </motion.div>
+              </div>
+            </CardContent>
+          </Card>
         </motion.div>
 
         {/* Testimonials */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="mb-16"
         >
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
-            >
-              <Card className="h-full bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-8">
-                  <div className="flex items-center mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  
-                  <Quote className="w-8 h-8 text-gray-300 mb-4" />
-                  
-                  <p className="text-gray-700 mb-6 leading-relaxed italic">
-                    "{testimonial.content}"
-                  </p>
-                  
-                  <div className="flex items-center space-x-4">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
-                    <div>
-                      <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                      <div className="text-sm text-gray-600">{testimonial.title}</div>
-                      <div className="text-sm text-gray-500">{testimonial.company}</div>
+          <h3 className="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+            What Our Clients Say
+          </h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 + index * 0.2 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+              >
+                <Card className="h-full bg-gray-50 dark:bg-gray-800 hover:shadow-2xl transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 text-gold fill-current" />
+                      ))}
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 italic">
+                      "{testimonial.content}"
+                    </p>
+                    <div>
+                      <div className="font-semibold text-gray-900 dark:text-white">
+                        {testimonial.name}
+                      </div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400">
+                        {testimonial.role} at {testimonial.company}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
-        {/* Achievements Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-        >
-          {achievements.map((achievement, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-            >
-              <Card className="h-full bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-orange-400 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <achievement.icon className="w-8 h-8 text-white" />
-                  </div>
-                  
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                    {achievement.title}
-                  </h3>
-                  
-                  <ul className="space-y-2">
-                    {achievement.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="text-sm text-gray-600">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Trust Indicators */}
+        {/* Logo Carousel */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="text-center mt-16"
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
         >
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            <div className="text-2xl font-bold text-gray-400">FDA</div>
-            <div className="text-2xl font-bold text-gray-400">USDA</div>
-            <div className="text-2xl font-bold text-gray-400">HACCP</div>
-            <div className="text-2xl font-bold text-gray-400">SQF</div>
-            <div className="text-2xl font-bold text-gray-400">BRC</div>
-            <div className="text-2xl font-bold text-gray-400">ISO 22000</div>
+          <h3 className="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+            Trusted by Industry Leaders
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+            {logos.map((logo, index) => (
+              <motion.div
+                key={index}
+                className="flex items-center justify-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300"
+                whileHover={{ scale: 1.1 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center mb-2">
+                    <span className="text-gray-500 dark:text-gray-400 font-semibold text-sm">
+                      {logo.name}
+                    </span>
+                  </div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">
+                    {logo.name}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>

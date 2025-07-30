@@ -2,27 +2,24 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { useTypewriter } from '@/hooks/useTypewriter';
-import { ChevronDown, Shield, Award, Users, TrendingUp } from 'lucide-react';
+import { ChevronDown, DollarSign, Shield, CheckCircle, TrendingUp } from 'lucide-react';
 
 const HeroSection = () => {
-  const typewriterText = useTypewriter("Transform Food Safety Compliance Into Profitable Business Opportunities", 50);
-
   const floatingIcons = [
-    { Icon: Shield, delay: 0, x: 100, y: 50 },
-    { Icon: Award, delay: 0.5, x: -80, y: 80 },
-    { Icon: Users, delay: 1, x: 120, y: -60 },
-    { Icon: TrendingUp, delay: 1.5, x: -100, y: -40 },
+    { Icon: DollarSign, delay: 0, x: 100, y: 50, color: 'text-gold' },
+    { Icon: Shield, delay: 0.5, x: -80, y: 80, color: 'text-orange' },
+    { Icon: CheckCircle, delay: 1, x: 120, y: -60, color: 'text-blue' },
+    { Icon: TrendingUp, delay: 1.5, x: -100, y: -40, color: 'text-gold' },
   ];
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden">
+    <section className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-black text-gray-900 dark:text-white relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
-        {floatingIcons.map(({ Icon, delay, x, y }, index) => (
+        {floatingIcons.map(({ Icon, delay, x, y, color }, index) => (
           <motion.div
             key={index}
-            className="absolute opacity-10"
+            className={`absolute opacity-10 ${color}`}
             initial={{ opacity: 0, scale: 0 }}
             animate={{ 
               opacity: 0.1, 
@@ -60,26 +57,26 @@ const HeroSection = () => {
           </Badge>
           
           <motion.h1 
-            className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+            className="text-5xl md:text-7xl font-bold mb-6 leading-tight font-serif"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 1 }}
           >
-            <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
-              Graham Ponsaran
+            <span className="bg-gradient-to-r from-gold to-orange bg-clip-text text-transparent">
+              Millions to Be Made from Food Safety
             </span>
           </motion.h1>
 
-          <div className="h-20 mb-8">
-            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              {typewriterText}
-              <motion.span
-                animate={{ opacity: [1, 0] }}
-                transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
-                className="inline-block w-1 h-6 bg-yellow-400 ml-1"
-              />
-            </p>
-          </div>
+          <motion.p 
+            className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 1 }}
+          >
+            Food safety isn't just compliance. It's the world's biggest untapped wealth generator. 
+            Learn how Graham Ponsaran helps restaurants, suppliers, governments, and even consumers 
+            turn safety into profit.
+          </motion.p>
         </motion.div>
 
         <motion.div
@@ -95,9 +92,9 @@ const HeroSection = () => {
             <Button 
               variant="gold" 
               size="lg" 
-              className="px-8 py-4 text-lg font-semibold shadow-2xl"
+              className="px-8 py-4 text-lg font-semibold shadow-2xl bg-gradient-to-r from-gold to-yellow-500 hover:from-yellow-500 hover:to-gold text-black"
             >
-              Get Free Consultation
+              Get Your Free Food Safety Wealth Checklist
             </Button>
           </motion.div>
           
@@ -106,11 +103,11 @@ const HeroSection = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Button 
-              variant="outline" 
+              variant="orange" 
               size="lg" 
-              className="px-8 py-4 text-lg border-gray-600 text-white hover:bg-gray-800"
+              className="px-8 py-4 text-lg font-semibold shadow-2xl bg-gradient-to-r from-orange to-red-500 hover:from-red-500 hover:to-orange text-white"
             >
-              Download Whitepaper
+              Book a Consultation
             </Button>
           </motion.div>
         </motion.div>
@@ -132,10 +129,10 @@ const HeroSection = () => {
               className="text-center"
               whileHover={{ scale: 1.1 }}
             >
-              <div className="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">
                 {stat.number}
               </div>
-              <div className="text-sm text-gray-400">{stat.label}</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>

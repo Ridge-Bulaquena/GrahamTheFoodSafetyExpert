@@ -62,6 +62,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Brand colors
+        gold: "hsl(var(--gold))",
+        orange: "hsl(var(--orange))",
+        blue: "hsl(var(--blue))",
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
