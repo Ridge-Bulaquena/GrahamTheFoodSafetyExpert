@@ -11,27 +11,27 @@ const ProfitOpportunities = () => {
       title: "Restaurateurs",
       subtitle: "Turn Compliance Into Customers.",
       description: "Transform food safety from a cost center into your biggest competitive advantage. Attract health-conscious diners and premium pricing.",
-      color: "from-gold to-yellow-500",
-      bgColor: "bg-gradient-to-r from-gold/10 to-yellow-500/10",
-      borderColor: "border-gold/20"
+      color: "from-gray-700 to-gray-800",
+      bgColor: "bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700",
+      borderColor: "border-gray-200 dark:border-gray-700"
     },
     {
       icon: Truck,
       title: "Suppliers",
       subtitle: "Win Big Contracts with Clean Standards.",
       description: "Leverage superior food safety protocols to secure major contracts with restaurants, hotels, and government agencies.",
-      color: "from-orange to-red-500",
-      bgColor: "bg-gradient-to-r from-orange/10 to-red-500/10",
-      borderColor: "border-orange/20"
+      color: "from-blue-600 to-blue-700",
+      bgColor: "bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800",
+      borderColor: "border-blue-200 dark:border-blue-700"
     },
     {
       icon: Scale,
       title: "Consumers",
       subtitle: "Profit from Whistleblowing & Lawsuits.",
       description: "Learn how to identify violations, document evidence, and claim rewards for exposing food safety violations.",
-      color: "from-blue to-cyan-500",
-      bgColor: "bg-gradient-to-r from-blue/10 to-cyan-500/10",
-      borderColor: "border-blue/20"
+      color: "from-green-600 to-green-700",
+      bgColor: "bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900 dark:to-green-800",
+      borderColor: "border-green-200 dark:border-green-700"
     }
   ];
 
@@ -47,7 +47,7 @@ const ProfitOpportunities = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 font-serif text-gray-900 dark:text-white">
             How You Can Profit from
-            <span className="bg-gradient-to-r from-gold to-orange bg-clip-text text-transparent"> Food Safety</span>
+            <span className="text-gray-700 dark:text-gray-300"> Food Safety</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Whether you're a restaurant owner, supplier, or consumer, there are millions to be made 
@@ -85,7 +85,7 @@ const ProfitOpportunities = () => {
                     {opportunity.description}
                   </p>
                   <Button 
-                    className={`bg-gradient-to-r ${opportunity.color} hover:shadow-lg text-white font-semibold`}
+                    className={`w-[220px] rounded-full bg-gradient-to-r ${opportunity.color} hover:shadow-lg text-white font-semibold`}
                     size="lg"
                   >
                     Learn More

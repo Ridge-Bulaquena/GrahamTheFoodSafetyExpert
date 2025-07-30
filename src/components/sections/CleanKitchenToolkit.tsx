@@ -44,7 +44,7 @@ const CleanKitchenToolkit = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 font-serif text-gray-900 dark:text-white">
             The Clean Kitchen
-            <span className="bg-gradient-to-r from-gold to-orange bg-clip-text text-transparent"> Toolkit</span>
+            <span className="text-gray-700 dark:text-gray-300"> Toolkit</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Three powerful tools that give you the intelligence, assessment, and transparency 
@@ -129,7 +129,7 @@ const CleanKitchenToolkit = () => {
           className="text-center mt-16"
         >
           <Button 
-            className="bg-gradient-to-r from-gold to-yellow-500 hover:from-yellow-500 hover:to-gold text-black font-semibold px-8 py-4 text-lg shadow-2xl"
+            className="w-[220px] rounded-full bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white font-semibold px-8 py-4 text-lg shadow-2xl"
             size="lg"
           >
             Try the Toolkit Free

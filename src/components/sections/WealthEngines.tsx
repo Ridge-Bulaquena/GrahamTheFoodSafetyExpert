@@ -11,33 +11,33 @@ const WealthEngines = () => {
       title: "Books",
       description: "Comprehensive guides on food safety compliance, risk management, and profit optimization strategies.",
       features: ["Industry Best Practices", "Case Studies", "Implementation Guides"],
-      color: "from-gold to-yellow-500",
-      bgColor: "bg-gradient-to-r from-gold/10 to-yellow-500/10",
-      borderColor: "border-gold/20",
+      color: "from-gray-700 to-gray-800",
+      bgColor: "bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700",
+      borderColor: "border-gray-200 dark:border-gray-700",
       ctaText: "Explore Books",
-      ctaColor: "bg-gradient-to-r from-gold to-yellow-500"
+      ctaColor: "bg-gradient-to-r from-gray-700 to-gray-800"
     },
     {
       icon: GraduationCap,
       title: "Courses",
       description: "Interactive online training programs designed to transform your food safety knowledge into profit.",
       features: ["Video Modules", "Interactive Quizzes", "Certification"],
-      color: "from-orange to-red-500",
-      bgColor: "bg-gradient-to-r from-orange/10 to-red-500/10",
-      borderColor: "border-orange/20",
+      color: "from-blue-600 to-blue-700",
+      bgColor: "bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800",
+      borderColor: "border-blue-200 dark:border-blue-700",
       ctaText: "Browse Courses",
-      ctaColor: "bg-gradient-to-r from-orange to-red-500"
+      ctaColor: "bg-gradient-to-r from-blue-600 to-blue-700"
     },
     {
       icon: Video,
       title: "Consultations",
       description: "One-on-one expert guidance to implement food safety strategies that drive revenue and growth.",
       features: ["Custom Strategy", "Implementation Support", "Ongoing Coaching"],
-      color: "from-blue to-cyan-500",
-      bgColor: "bg-gradient-to-r from-blue/10 to-cyan-500/10",
-      borderColor: "border-blue/20",
+      color: "from-green-600 to-green-700",
+      bgColor: "bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900 dark:to-green-800",
+      borderColor: "border-green-200 dark:border-green-700",
       ctaText: "Book a Consultation",
-      ctaColor: "bg-gradient-to-r from-blue to-cyan-500"
+      ctaColor: "bg-gradient-to-r from-green-600 to-green-700"
     }
   ];
 
@@ -53,7 +53,7 @@ const WealthEngines = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 font-serif text-gray-900 dark:text-white">
             Graham's 3
-            <span className="bg-gradient-to-r from-gold to-orange bg-clip-text text-transparent"> Wealth Engines</span>
+            <span className="text-gray-700 dark:text-gray-300"> Wealth Engines</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Choose your path to food safety wealth. From books to courses to personalized consultations, 
@@ -100,14 +100,14 @@ const WealthEngines = () => {
                           viewport={{ once: true }}
                           className="text-sm text-gray-600 dark:text-gray-300 flex items-center justify-center"
                         >
-                          <span className="w-2 h-2 rounded-full bg-gradient-to-r from-gold to-orange mr-2"></span>
+                          <span className="w-2 h-2 rounded-full bg-gray-400 dark:bg-gray-600 mr-2"></span>
                           {feature}
                         </motion.li>
                       ))}
                     </ul>
                   </div>
                   <Button 
-                    className={`${engine.ctaColor} hover:shadow-lg text-white font-semibold w-full`}
+                    className={`w-[220px] rounded-full ${engine.ctaColor} hover:shadow-lg text-white font-semibold`}
                     size="lg"
                   >
                     {engine.ctaText}

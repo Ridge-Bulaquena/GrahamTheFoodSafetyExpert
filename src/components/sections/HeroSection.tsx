@@ -28,10 +28,10 @@ const HeroSection = () => {
   };
 
   const floatingIcons = [
-    { Icon: DollarSign, delay: 0, x: 100, y: 50, color: 'text-lime' },
-    { Icon: Shield, delay: 0.5, x: -80, y: 80, color: 'text-muted-blue' },
-    { Icon: CheckCircle, delay: 1, x: 120, y: -60, color: 'text-muted-violet' },
-    { Icon: TrendingUp, delay: 1.5, x: -100, y: -40, color: 'text-lime' },
+    { Icon: DollarSign, delay: 0, x: 100, y: 50, color: 'text-gray-400 dark:text-gray-600' },
+    { Icon: Shield, delay: 0.5, x: -80, y: 80, color: 'text-gray-400 dark:text-gray-600' },
+    { Icon: CheckCircle, delay: 1, x: 120, y: -60, color: 'text-gray-400 dark:text-gray-600' },
+    { Icon: TrendingUp, delay: 1.5, x: -100, y: -40, color: 'text-gray-400 dark:text-gray-600' },
   ];
 
   return (
@@ -74,15 +74,15 @@ const HeroSection = () => {
           animate="visible"
           className="mb-8"
         >
-          <motion.h1 
-            variants={itemVariants}
-            className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
-            style={{ fontFamily: 'League Gothic, sans-serif' }}
-          >
-            <span className="bg-gradient-to-r from-lime to-muted-blue bg-clip-text text-transparent">
-              Millions to Be Made from Food Safety
-            </span>
-          </motion.h1>
+                      <motion.h1 
+              variants={itemVariants}
+              className="text-5xl md:text-7xl font-normal mb-6 leading-tight"
+              style={{ fontFamily: 'League Gothic, sans-serif' }}
+            >
+              <span className="text-gray-900 dark:text-white">
+                Millions to Be Made from Food Safety
+              </span>
+            </motion.h1>
 
           <motion.p 
             variants={itemVariants}
@@ -105,7 +105,7 @@ const HeroSection = () => {
             <Button 
               variant="gold" 
               size="lg" 
-              className="px-8 py-4 text-lg font-semibold shadow-2xl bg-gradient-to-r from-lime to-green-500 hover:from-green-500 hover:to-lime text-black"
+              className="w-[220px] rounded-full px-8 py-4 text-lg font-semibold shadow-2xl bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-gray-800 text-white"
             >
               Get Your Free Food Safety Wealth Checklist
             </Button>
@@ -118,7 +118,7 @@ const HeroSection = () => {
             <Button 
               variant="orange" 
               size="lg" 
-              className="px-8 py-4 text-lg font-semibold shadow-2xl bg-gradient-to-r from-muted-blue to-muted-violet hover:from-muted-violet hover:to-muted-blue text-white"
+              className="w-[220px] rounded-full px-8 py-4 text-lg font-semibold shadow-2xl bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-600 text-white"
             >
               Book a Consultation
             </Button>
@@ -140,7 +140,7 @@ const HeroSection = () => {
               className="text-center"
               whileHover={{ scale: 1.1 }}
             >
-              <div className="text-3xl md:text-4xl font-bold text-lime mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-200 mb-2">
                 {stat.number}
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>

@@ -27,7 +27,7 @@ const GovernmentWhitepaper = () => {
           
           <h2 className="text-4xl md:text-5xl font-bold mb-6 font-serif">
             The Economic Impact of
-            <span className="bg-gradient-to-r from-gold to-orange bg-clip-text text-transparent"> Clean Kitchens</span>
+            <span className="text-gray-300"> Clean Kitchens</span>
           </h2>
           
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
@@ -94,7 +94,7 @@ const GovernmentWhitepaper = () => {
           className="text-center"
         >
           <Button 
-            className="bg-gradient-to-r from-gold to-yellow-500 hover:from-yellow-500 hover:to-gold text-black font-semibold px-8 py-4 text-lg shadow-2xl"
+            className="w-[220px] rounded-full bg-gradient-to-r from-gray-200 to-gray-300 hover:from-gray-300 hover:to-gray-200 text-gray-900 font-semibold px-8 py-4 text-lg shadow-2xl"
             size="lg"
           >
             <Download className="w-5 h-5 mr-2" />
