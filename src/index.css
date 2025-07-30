@@ -26,10 +26,10 @@
     --ring: 0 0% 20%;
     --radius: 0.5rem;
     
-    /* Brand Colors */
-    --gold: 45 100% 45%;
-    --orange: 16 100% 60%;
-    --blue: 200 100% 22%;
+    /* Brand Colors - Green and Muted Blue-Violet */
+    --lime: 120 100% 50%;
+    --muted-blue: 240 30% 60%;
+    --muted-violet: 270 30% 70%;
   }
 
   .dark {
@@ -54,15 +54,15 @@
     --input: 0 0% 17%;
     --ring: 0 0% 83%;
     
-    /* Brand Colors */
-    --gold: 45 100% 45%;
-    --orange: 16 100% 60%;
-    --blue: 200 100% 22%;
+    /* Brand Colors - Green and Muted Blue-Violet */
+    --lime: 120 100% 50%;
+    --muted-blue: 240 30% 60%;
+    --muted-violet: 270 30% 70%;
   }
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 }
 
