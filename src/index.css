@@ -1,3 +1,7 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic+Condensed:ital,wght@0,400;1,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -79,6 +83,57 @@
   
   .section-dark {
     @apply bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white;
+  }
+
+  /* Hero specific styles */
+  .hero-headline {
+    font-family: 'League Gothic Condensed', sans-serif;
+    background: linear-gradient(180deg, #C7D0D3 0%, #6D7284 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 0.9;
+  }
+
+  .hero-descriptor {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    color: #848DAB;
+  }
+
+  .hero-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    color: #1A1B1D;
+  }
+
+  .hero-paragraph {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #1A1B1D;
+  }
+
+  .floating-animation {
+    animation: float 10s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  .parallax-container {
+    will-change: transform;
+  }
+
+  .svg-shadow {
+    filter: blur(50px);
+    opacity: 0.13;
   }
 }
 

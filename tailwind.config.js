@@ -67,6 +67,10 @@ export default {
         "muted-blue": "hsl(var(--muted-blue))",
         "muted-violet": "hsl(var(--muted-violet))",
       },
+      screens: {
+        '3xl': '1920px', // 4K displays
+        '4xl': '2560px', // Ultra-wide displays
+      },
       animation: {
         'float': 'float 6s ease-in-out infinite',
         'pulse-slow': 'pulse 3s ease-in-out infinite',

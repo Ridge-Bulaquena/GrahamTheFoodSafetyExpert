@@ -1,161 +1,151 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { ChevronDown, DollarSign, Shield, CheckCircle, TrendingUp } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import grahamPortrait from '@/assets/graham-portrait.png';
 
 const HeroSection = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
-      }
-    }
-  };
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut" as const
-      }
-    }
-  };
+  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-  const floatingIcons = [
-    { Icon: DollarSign, delay: 0, x: 100, y: 50, color: 'text-gray-400 dark:text-gray-600' },
-    { Icon: Shield, delay: 0.5, x: -80, y: 80, color: 'text-gray-400 dark:text-gray-600' },
-    { Icon: CheckCircle, delay: 1, x: 120, y: -60, color: 'text-gray-400 dark:text-gray-600' },
-    { Icon: TrendingUp, delay: 1.5, x: -100, y: -40, color: 'text-gray-400 dark:text-gray-600' },
-  ];
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-black text-gray-900 dark:text-white relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        {floatingIcons.map(({ Icon, delay, x, y, color }, index) => (
-          <motion.div
-            key={index}
-            className={`absolute opacity-10 ${color}`}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ 
-              opacity: 0.1, 
-              scale: 1,
-              x: [0, x, 0],
-              y: [0, y, 0],
-            }}
-            transition={{
-              duration: 8,
-              delay,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut"
-            }}
-            style={{
-              left: `${20 + (index * 20)}%`,
-              top: `${30 + (index * 15)}%`,
-            }}
+    <section 
+      ref={containerRef}
+      className="min-h-screen bg-[#EAEEF4] relative overflow-hidden"
+      style={{ backgroundColor: '#EAEEF4' }}
+    >
+      <div className="container mx-auto px-6 py-20">
+        <div className="flex flex-col lg:flex-row items-center justify-between min-h-screen gap-12 lg:gap-16">
+          
+          {/* Left Column - Text Content */}
+          <motion.div 
+            className="flex-1 max-w-2xl lg:max-w-none"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <Icon size={80} />
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-6 py-20 flex flex-col items-center justify-center min-h-screen text-center">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="mb-8"
-        >
-                      <motion.h1 
-              variants={itemVariants}
-              className="text-5xl md:text-7xl font-normal mb-6 leading-tight"
-              style={{ fontFamily: 'League Gothic, sans-serif' }}
+            {/* Top Descriptor */}
+            <motion.div 
+              className="hero-descriptor text-sm md:text-base mb-3 md:mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <span className="text-gray-900 dark:text-white">
-                Millions to Be Made from Food Safety
-              </span>
+              FOOD SAFETY SPECIALIST, RESTAURATEUR, SANITATION EXPERT
+            </motion.div>
+
+            {/* Name */}
+            <motion.h2 
+              className="hero-name text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              GRAHAM PONSARAN
+            </motion.h2>
+
+            {/* Main Headline */}
+            <motion.h1 
+              className="hero-headline text-6xl md:text-8xl lg:text-9xl xl:text-[120px] 2xl:text-[160px] 3xl:text-[180px] 4xl:text-[200px] mb-6 md:mb-8 leading-[0.9]"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <div>Millions to be Made</div>
+              <div>from Food Safety</div>
             </motion.h1>
 
-          <motion.p 
-            variants={itemVariants}
-            className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8"
-          >
-            Food safety isn't just compliance. It's the world's biggest untapped wealth generator. 
-            Learn how Graham Ponsaran helps restaurants, suppliers, governments, and even consumers 
-            turn safety into profit.
-          </motion.p>
-        </motion.div>
-
-        <motion.div
-          variants={itemVariants}
-          className="flex flex-col sm:flex-row gap-4 mb-12"
-        >
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Button 
-              variant="gold" 
-              size="lg" 
-              className="w-[220px] rounded-full px-8 py-4 text-lg font-semibold shadow-2xl bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-gray-800 text-white"
+            {/* Descriptive Paragraph */}
+            <motion.p 
+              className="hero-paragraph text-lg md:text-xl max-w-[700px] leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
             >
-              Get Your Free Food Safety Wealth Checklist
-            </Button>
+              Food safety isn't just compliance. It's the world's biggest untapped wealth generator. 
+              Learn how Graham Ponsaran helps restaurants, suppliers, governments, and even consumers 
+              turn safety into profit.
+            </motion.p>
           </motion.div>
-          
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+
+          {/* Right Column - Portrait Image */}
+          <motion.div 
+            className="flex-1 flex justify-center lg:justify-end relative"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <Button 
-              variant="orange" 
-              size="lg" 
-              className="w-[220px] rounded-full px-8 py-4 text-lg font-semibold shadow-2xl bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-600 text-white"
-            >
-              Book a Consultation
-            </Button>
+            <div className="relative">
+              {/* SVG Shadow */}
+              <motion.svg
+                className="absolute inset-0 w-full h-full svg-shadow"
+                style={{ 
+                  filter: 'blur(50px)',
+                  opacity: 0.13,
+                  transform: 'scale(1.1) translateY(20px)'
+                }}
+                viewBox="0 0 400 600"
+                preserveAspectRatio="xMidYMid meet"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.13 }}
+                transition={{ duration: 1, delay: 1 }}
+              >
+                <defs>
+                  <linearGradient id="shadowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#6D7284" stopOpacity="0.1" />
+                    <stop offset="100%" stopColor="#6D7284" stopOpacity="0.05" />
+                  </linearGradient>
+                </defs>
+                <ellipse 
+                  cx="200" 
+                  cy="300" 
+                  rx="120" 
+                  ry="200" 
+                  fill="url(#shadowGradient)"
+                />
+              </motion.svg>
+
+              {/* Portrait Image */}
+              <motion.div
+                className="relative z-10"
+                style={{
+                  y: prefersReducedMotion ? 0 : y,
+                }}
+                animate={prefersReducedMotion ? {} : {
+                  y: [0, -12, 0],
+                }}
+                transition={prefersReducedMotion ? {} : {
+                  duration: 10,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                <motion.img
+                  src={grahamPortrait}
+                  alt="Graham Ponsaran - Food Safety Expert"
+                  className="w-80 h-auto md:w-96 lg:w-[500px] xl:w-[600px] max-w-full rounded-lg shadow-2xl"
+                  style={{ 
+                    filter: 'drop-shadow(0 20px 40px rgba(109, 114, 132, 0.2))'
+                  }}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 1, delay: 0.5 }}
+                  whileHover={{ 
+                    scale: 1.02,
+                    transition: { duration: 0.3 }
+                  }}
+                />
+              </motion.div>
+            </div>
           </motion.div>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          variants={itemVariants}
-          className="grid grid-cols-3 gap-8 mb-16"
-        >
-          {[
-            { number: "500+", label: "Businesses Transformed" },
-            { number: "$50M+", label: "Revenue Generated" },
-            { number: "25+", label: "Years Experience" },
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              className="text-center"
-              whileHover={{ scale: 1.1 }}
-            >
-              <div className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-200 mb-2">
-                {stat.number}
-              </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <ChevronDown className="w-8 h-8 text-gray-400" />
-        </motion.div>
+        </div>
       </div>
     </section>
   );
