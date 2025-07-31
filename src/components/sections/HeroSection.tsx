@@ -4,16 +4,40 @@ import grahamPortrait from '@/assets/graham-portrait.png';
 
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const portraitRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, -60]); // 0.6x scroll speed
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Mouse hover parallax effect
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (prefersReducedMotion || !portraitRef.current) return;
+    
+    const rect = portraitRef.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+    
+    const deltaX = (mouseX - centerX) / 50; // ±10px max
+    const deltaY = (mouseY - centerY) / 50;
+    
+    portraitRef.current.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+  };
+
+  const handleMouseLeave = () => {
+    if (portraitRef.current) {
+      portraitRef.current.style.transform = 'translate(0px, 0px)';
+    }
+  };
 
   return (
     <section 
@@ -31,25 +55,25 @@ const HeroSection = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            {/* Top Descriptor */}
-            <motion.div 
-              className="hero-descriptor text-sm md:text-base mb-3 md:mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              FOOD SAFETY SPECIALIST, RESTAURATEUR, SANITATION EXPERT
-            </motion.div>
+                         {/* Top Descriptor */}
+             <motion.div 
+               className="hero-descriptor mb-3 md:mb-4"
+               initial={{ opacity: 0, y: 20 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.6, delay: 0.2 }}
+             >
+               FOOD SAFETY SPECIALIST, RESTAURATEUR, SANITATION EXPERT
+             </motion.div>
 
-            {/* Name */}
-            <motion.h2 
-              className="hero-name text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              GRAHAM PONSARAN
-            </motion.h2>
+             {/* Name */}
+             <motion.h2 
+               className="hero-name mb-4 md:mb-6"
+               initial={{ opacity: 0, y: 20 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.6, delay: 0.4 }}
+             >
+               GRAHAM PONSARAN
+             </motion.h2>
 
             {/* Main Headline */}
             <motion.h1 
@@ -62,17 +86,17 @@ const HeroSection = () => {
               <div>from Food Safety</div>
             </motion.h1>
 
-            {/* Descriptive Paragraph */}
-            <motion.p 
-              className="hero-paragraph text-lg md:text-xl max-w-[700px] leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-            >
-              Food safety isn't just compliance. It's the world's biggest untapped wealth generator. 
-              Learn how Graham Ponsaran helps restaurants, suppliers, governments, and even consumers 
-              turn safety into profit.
-            </motion.p>
+                         {/* Descriptive Paragraph */}
+             <motion.p 
+               className="hero-paragraph max-w-[700px]"
+               initial={{ opacity: 0, y: 20 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.6, delay: 0.8 }}
+             >
+               Food safety isn't just compliance. It's the world's biggest untapped wealth generator. 
+               Learn how Graham Ponsaran helps restaurants, suppliers, governments, and even consumers 
+               turn safety into profit.
+             </motion.p>
           </motion.div>
 
           {/* Right Column - Portrait Image */}
@@ -112,36 +136,33 @@ const HeroSection = () => {
                 />
               </motion.svg>
 
-              {/* Portrait Image */}
-              <motion.div
-                className="relative z-10"
-                style={{
-                  y: prefersReducedMotion ? 0 : y,
-                }}
-                animate={prefersReducedMotion ? {} : {
-                  y: [0, -12, 0],
-                }}
-                transition={prefersReducedMotion ? {} : {
-                  duration: 10,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                <motion.img
-                  src={grahamPortrait}
-                  alt="Graham Ponsaran - Food Safety Expert"
-                  className="w-80 h-auto md:w-96 lg:w-[500px] xl:w-[600px] max-w-full rounded-lg shadow-2xl"
-                  style={{ 
-                    filter: 'drop-shadow(0 20px 40px rgba(109, 114, 132, 0.2))'
-                  }}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                  whileHover={{ 
-                    scale: 1.02,
-                    transition: { duration: 0.3 }
-                  }}
-                />
+                             {/* Portrait Image */}
+               <motion.div
+                 ref={portraitRef}
+                 className="relative z-10"
+                 style={{
+                   y: prefersReducedMotion ? 0 : y,
+                 }}
+                 animate={prefersReducedMotion ? {} : {
+                   y: [0, -11, 0],
+                   scale: [1, 1.015, 1],
+                 }}
+                 transition={prefersReducedMotion ? {} : {
+                   duration: 10,
+                   repeat: Infinity,
+                   ease: "easeInOut"
+                 }}
+                 onMouseMove={handleMouseMove}
+                 onMouseLeave={handleMouseLeave}
+               >
+                                 <motion.img
+                   src={grahamPortrait}
+                   alt="Graham Ponsaran - Food Safety Expert"
+                   className="w-80 h-auto md:w-96 lg:w-[500px] xl:w-[600px] max-w-full rounded-lg"
+                   initial={{ opacity: 0, scale: 0.9 }}
+                   animate={{ opacity: 1, scale: 1 }}
+                   transition={{ duration: 1, delay: 0.5 }}
+                 />
               </motion.div>
             </div>
           </motion.div>
