@@ -19,7 +19,7 @@ const ContactCTA = () => {
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 font-serif text-gray-900 dark:text-white">
               Ready to Turn Food Safety Into
-              <span className="bg-gradient-to-r from-gold to-orange bg-clip-text text-transparent"> Profit?</span>
+              <span className="text-gray-700 dark:text-gray-300"> Profit?</span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
               Schedule your free 15-minute audit call and discover how much money you're leaving on the table.
@@ -60,7 +60,7 @@ const ContactCTA = () => {
                       />
                     </div>
                     <Button 
-                      className="w-full bg-gradient-to-r from-orange to-red-500 hover:from-red-500 hover:to-orange text-white font-semibold py-3"
+                      className="w-[220px] rounded-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-600 text-white font-semibold py-3"
                       size="lg"
                     >
                       Schedule a Free 15-Minute Audit Call
@@ -146,7 +146,7 @@ const ContactCTA = () => {
                   placeholder="Enter your email" 
                   className="flex-1 p-3 bg-white text-gray-900 border-0 rounded-lg"
                 />
-                <Button className="bg-gradient-to-r from-gold to-yellow-500 hover:from-yellow-500 hover:to-gold text-black">
+                <Button className="w-[220px] rounded-full bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white">
                   Subscribe
                 </Button>
               </div>
