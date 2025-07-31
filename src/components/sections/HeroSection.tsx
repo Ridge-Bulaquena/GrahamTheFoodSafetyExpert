@@ -48,13 +48,13 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 py-20">
         <div className="flex flex-col lg:flex-row items-center justify-between min-h-screen gap-12 lg:gap-16">
           
-          {/* Left Column - Text Content */}
-          <motion.div 
-            className="flex-1 max-w-2xl lg:max-w-none"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
+                     {/* Left Column - Text Content */}
+           <motion.div 
+             className="flex-1 max-w-2xl lg:max-w-none flex flex-col justify-center"
+             initial={{ opacity: 0, x: -50 }}
+             animate={{ opacity: 1, x: 0 }}
+             transition={{ duration: 0.8, ease: "easeOut" }}
+           >
                          {/* Top Descriptor */}
              <motion.div 
                className="hero-descriptor mb-3 md:mb-4"
@@ -99,13 +99,13 @@ const HeroSection = () => {
              </motion.p>
           </motion.div>
 
-          {/* Right Column - Portrait Image */}
-          <motion.div 
-            className="flex-1 flex justify-center lg:justify-end relative"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
+                     {/* Right Column - Portrait Image */}
+           <motion.div 
+             className="flex-1 flex justify-center items-center relative"
+             initial={{ opacity: 0, x: 50 }}
+             animate={{ opacity: 1, x: 0 }}
+             transition={{ duration: 0.8, ease: "easeOut" }}
+           >
             <div className="relative">
               {/* SVG Shadow */}
               <motion.svg
