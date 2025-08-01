@@ -18,12 +18,12 @@ const HeroSection = () => {
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Auto-advance slides every 4 seconds with transition
+  // Auto-advance slides every 8 seconds with transition (now 3 slides)
   useEffect(() => {
     const interval = setInterval(() => {
       setIsTransitioning(true);
       setTimeout(() => {
-        setCurrentSlide(prev => prev === 1 ? 2 : 1);
+        setCurrentSlide(prev => prev === 3 ? 1 : prev + 1);
         setIsTransitioning(false);
       }, 300); // Transition duration
     }, 8000); // 8 seconds total: 3 seconds for animations + 5 seconds pause
@@ -187,8 +187,9 @@ const HeroSection = () => {
                     turn safety into profit.
                   </motion.p>
                 </motion.div>
-              ) : (
-                // Slide 2 Content
+
+              ) : currentSlide === 2 ? (
+                // Slide 2 Content (keep existing)
                 <motion.div
                   key="slide2"
                   custom={-1}
@@ -283,6 +284,168 @@ const HeroSection = () => {
                     }}
                   >
                     Achieve full regulatory compliance and unlock greater market opportunities with Graham's expert-led training and consulting.
+                  </motion.p>
+
+                  {/* Action Buttons */}
+                  <motion.div 
+                    className="flex flex-col sm:flex-row gap-4 mt-8 md:mt-10"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ 
+                      duration: 0.6, 
+                      delay: 1.15,
+                      ease: [0.22, 0.61, 0.36, 1]
+                    }}
+                  >
+                    {/* First Button */}
+                    <motion.button
+                      className="relative px-4 py-2.5 glass-button w-[220px]"
+                      style={{ 
+                        fontFamily: 'Poppins, sans-serif',
+                        fontSize: '11px',
+                        letterSpacing: '1px'
+                      }}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ 
+                        duration: 0.4, 
+                        delay: 1.15,
+                        ease: [0.22, 0.61, 0.36, 1]
+                      }}
+                      whileHover={{ 
+                        scale: 1.02, 
+                        y: -2,
+                        boxShadow: '0 6px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.4)'
+                      }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <span className="relative z-10">REGISTER FOR TRAINING</span>
+                      <div className="shine-effect"></div>
+                    </motion.button>
+
+                    {/* Second Button */}
+                    <motion.button
+                      className="relative px-4 py-2.5 glass-button w-[220px]"
+                      style={{ 
+                        fontFamily: 'Poppins, sans-serif',
+                        fontSize: '11px',
+                        letterSpacing: '1px'
+                      }}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ 
+                        duration: 0.4, 
+                        delay: 1.25,
+                        ease: [0.22, 0.61, 0.36, 1]
+                      }}
+                      whileHover={{ 
+                        scale: 1.02, 
+                        y: -2,
+                        boxShadow: '0 6px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.4)'
+                      }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <span className="relative z-10">VIEW CONSULTING SERVICES</span>
+                      <div className="shine-effect"></div>
+                    </motion.button>
+                  </motion.div>
+                </motion.div>
+              ) : (
+                // Slide 3 Content - Food Safety Training Services
+                <motion.div
+                  key="slide3"
+                  custom={1}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={transition}
+                  className="w-full"
+                >
+                  {/* Top Descriptor */}
+                  <motion.div 
+                    className="text-sm md:text-base font-normal text-[#848DAB] uppercase tracking-wider mb-3 md:mb-4"
+                    style={{ 
+                      fontFamily: 'Poppins, sans-serif',
+                      fontSize: '16px',
+                      letterSpacing: '1px'
+                    }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ 
+                      duration: 0.6, 
+                      delay: 0.2,
+                      ease: [0.22, 0.61, 0.36, 1]
+                    }}
+                  >
+                    FOOD SAFETY SPECIALIST, RESTAURATEUR, SANITATION EXPERT
+                  </motion.div>
+
+                  {/* Name */}
+                  <motion.h2 
+                    className="text-3xl md:text-4xl lg:text-5xl font-extralight text-[#1A1B1D] mb-3 md:mb-4"
+                    style={{ 
+                      fontFamily: 'Poppins, sans-serif',
+                      letterSpacing: '4px'
+                    }}
+                    initial={{ opacity: 0, y: 20, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ 
+                      duration: 0.7, 
+                      delay: 0.4,
+                      ease: [0.22, 0.61, 0.36, 1]
+                    }}
+                  >
+                    GRAHAM PONSARAN
+                  </motion.h2>
+
+                  {/* Main Headline */}
+                  <motion.h1 
+                    className="text-5xl md:text-7xl lg:text-8xl xl:text-[110px] 2xl:text-[150px] 3xl:text-[170px] 4xl:text-[190px] font-normal mb-5 md:mb-6 leading-[0.85]"
+                    style={{ fontFamily: 'League Gothic Condensed, sans-serif' }}
+                  >
+                    {/* First Line */}
+                    <motion.div
+                      className="text-transparent bg-clip-text bg-gradient-to-br from-[#C7D0D3] to-[#6D7284]"
+                      initial={{ opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
+                      animate={{ opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" }}
+                      transition={{ 
+                        duration: 0.8, 
+                        delay: 0.6,
+                        ease: [0.22, 0.61, 0.36, 1]
+                      }}
+                    >
+                      Food Safety Training
+                    </motion.div>
+                    
+                    {/* Second Line */}
+                    <motion.div
+                      className="text-transparent bg-clip-text bg-gradient-to-br from-[#C7D0D3] to-[#6D7284]"
+                      initial={{ opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
+                      animate={{ opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" }}
+                      transition={{ 
+                        duration: 0.8, 
+                        delay: 0.75,
+                        ease: [0.22, 0.61, 0.36, 1]
+                      }}
+                    >
+                      Services
+                    </motion.div>
+                  </motion.h1>
+
+                  {/* Descriptive Paragraph */}
+                  <motion.p 
+                    className="text-lg md:text-xl text-[#1A1B1D] max-w-[700px] leading-relaxed mt-4 md:mt-6"
+                    style={{ fontFamily: 'Poppins, sans-serif' }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ 
+                      duration: 0.7, 
+                      delay: 0.95,
+                      ease: [0.22, 0.61, 0.36, 1]
+                    }}
+                  >
+                    With constant and sometimes confusing changes in regulations and certification standards, keeping your team trained is more critical than ever. Graham understands today's business challenges and offers practical food safety training tailored to all levels—from production-floor staff to senior management.
                   </motion.p>
 
                   {/* Action Buttons */}
