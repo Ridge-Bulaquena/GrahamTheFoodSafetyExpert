@@ -20,7 +20,7 @@ const HeroSection2 = () => {
   return (
     <section 
       ref={containerRef}
-      className="min-h-screen bg-[#EAEEF4] relative overflow-hidden flex items-center justify-center px-6 py-20"
+      className="min-h-screen bg-[#EAEEF4] relative overflow-x-hidden flex items-center justify-center px-6 py-20"
       style={{ backgroundColor: '#EAEEF4' }}
     >
       {/* Centered Box Container - Max Width 1250px */}
@@ -216,42 +216,42 @@ const HeroSection2 = () => {
 
             {/* Second Portrait Image - Floating with Different Animation */}
             <motion.div
-              className="absolute z-0 -right-8 top-16 lg:-right-16 lg:top-24"
-              initial={{ opacity: 0, scale: 0.9, x: 100 }}
+              className="absolute z-20 right-4 top-12 md:right-8 md:top-16 lg:right-12 lg:top-20 xl:right-16 xl:top-24"
+              initial={{ opacity: 0, scale: 0.7, x: 50 }}
               animate={{ 
-                opacity: 0.8, 
+                opacity: 1, 
                 scale: 1,
                 x: 0,
-                y: prefersReducedMotion ? 0 : [0, -20, 0],
+                y: prefersReducedMotion ? 0 : [0, -15, 0],
               }}
               transition={{ 
                 opacity: { duration: 0.8, delay: 1.5, ease: "easeOut" },
                 scale: { duration: 0.8, delay: 1.5, ease: "easeOut" },
                 x: { duration: 0.8, delay: 1.5, ease: "easeOut" },
                 y: prefersReducedMotion ? {} : {
-                  duration: 8,
+                  duration: 6,
                   repeat: Infinity,
                   ease: "easeInOut",
                   delay: 2
                 }
               }}
               whileHover={{ 
-                scale: 1.1,
+                scale: 1.15,
                 opacity: 1,
-                rotate: -3,
-                z: 20,
+                rotate: -5,
+                zIndex: 30,
                 transition: { duration: 0.3 }
               }}
             >
               <motion.img
                 src={grahamPortrait2}
                 alt="Graham Ponsaran - Additional Portrait"
-                className="w-48 h-auto md:w-56 lg:w-72 xl:w-80 max-w-full rounded-lg shadow-xl border-4 border-white/50"
-                initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
-                animate={{ opacity: 1, scale: 1, rotate: 5 }}
+                className="w-32 h-auto md:w-40 lg:w-48 xl:w-56 max-w-full rounded-lg shadow-2xl border-2 border-white/70 bg-white/10 backdrop-blur-sm"
+                initial={{ opacity: 0, scale: 0.8, rotate: 8 }}
+                animate={{ opacity: 1, scale: 1, rotate: 8 }}
                 transition={{ duration: 1, delay: 1.2 }}
                 whileHover={{
-                  rotate: 0,
+                  rotate: 3,
                   transition: { duration: 0.3 }
                 }}
               />
