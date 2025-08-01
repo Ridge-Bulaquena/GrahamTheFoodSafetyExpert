@@ -1,22 +1,14 @@
-import React from 'react';
-import HeroSection from './components/sections/HeroSection';
-import ProfitOpportunities from './components/sections/ProfitOpportunities';
-import WealthEngines from './components/sections/WealthEngines';
-import ProofAuthority from './components/sections/ProofAuthority';
-import CleanKitchenToolkit from './components/sections/CleanKitchenToolkit';
-import GovernmentWhitepaper from './components/sections/GovernmentWhitepaper';
-import ContactCTA from './components/sections/ContactCTA';
-
 function App() {
   return (
-    <div className="min-h-screen bg-[#EAEEF4]">
-      <HeroSection />
-      <ProfitOpportunities />
-      <WealthEngines />
-      <ProofAuthority />
-      <CleanKitchenToolkit />
-      <GovernmentWhitepaper />
-      <ContactCTA />
+    <div className="min-h-screen bg-[#EAEEF4] flex items-center justify-center">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold text-[#1A1B1D] mb-4">
+          Test - React App is Working
+        </h1>
+        <p className="text-lg text-[#848DAB]">
+          Migration in progress...
+        </p>
+      </div>
     </div>
   );
 }
