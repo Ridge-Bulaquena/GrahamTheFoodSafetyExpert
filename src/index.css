@@ -1,5 +1,5 @@
 /* Import fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=League+Gothic+Condensed:ital,wght@0,400;1,400&display=swap');
 
 @tailwind base;
@@ -88,7 +88,7 @@
   /* Hero specific styles */
   .hero-headline {
     font-family: 'League Gothic Condensed', sans-serif;
-    background: linear-gradient(180deg, #C7D0D3 0%, #6D7284 100%);
+    background: linear-gradient(135deg, #C7D0D3 0%, #6D7284 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -105,7 +105,7 @@
 
   .hero-name {
     font-family: 'Poppins', sans-serif;
-    font-weight: 100 !important;
+    font-weight: 200 !important;
     font-size: 40px;
     letter-spacing: 10px;
     color: #1A1B1D;
