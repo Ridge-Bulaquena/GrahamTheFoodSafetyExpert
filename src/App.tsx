@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import HeroSection from './components/sections/HeroSection';
-import HeroSection2 from './components/sections/HeroSection2';
 import ProfitOpportunities from './components/sections/ProfitOpportunities';
 import WealthEngines from './components/sections/WealthEngines';
 import ProofAuthority from './components/sections/ProofAuthority';
@@ -55,7 +54,6 @@ function App() {
       </button>
 
       <HeroSection />
-      <HeroSection2 />
       <ProfitOpportunities />
       <WealthEngines />
       <ProofAuthority />
