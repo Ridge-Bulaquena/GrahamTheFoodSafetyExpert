@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import grahamPortrait from '@/assets/graham-portrait.png';
+import grahamPortrait2 from '@/assets/graham-portrait-2.png';
 
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -539,7 +540,7 @@ const HeroSection = () => {
               }}
             >
               <motion.img
-                src={grahamPortrait}
+                src={currentSlide === 2 ? grahamPortrait2 : grahamPortrait}
                 alt="Graham Ponsaran - Food Safety Expert"
                 className="w-80 h-auto md:w-96 lg:w-[550px] xl:w-[650px] max-w-full rounded-lg"
                 initial={{ opacity: 0, scale: 0.9 }}
