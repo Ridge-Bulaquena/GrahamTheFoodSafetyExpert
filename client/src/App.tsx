@@ -1,25 +1,23 @@
-export default function App() {
+import HeroSection from './components/sections/HeroSection';
+import ProfitOpportunities from './components/sections/ProfitOpportunities';
+import WealthEngines from './components/sections/WealthEngines';
+import ProofAuthority from './components/sections/ProofAuthority';
+import CleanKitchenToolkit from './components/sections/CleanKitchenToolkit';
+import GovernmentWhitepaper from './components/sections/GovernmentWhitepaper';
+import ContactCTA from './components/sections/ContactCTA';
+
+function App() {
   return (
-    <div style={{ 
-      minHeight: '100vh', 
-      backgroundColor: '#EAEEF4', 
-      display: 'flex', 
-      alignItems: 'center', 
-      justifyContent: 'center' 
-    }}>
-      <div style={{ textAlign: 'center' }}>
-        <h1 style={{ 
-          fontSize: '48px', 
-          fontWeight: 'bold', 
-          color: '#1A1B1D', 
-          marginBottom: '16px' 
-        }}>
-          React App is Working!
-        </h1>
-        <p style={{ fontSize: '20px', color: '#848DAB' }}>
-          Migration successful - Tailwind may be loading...
-        </p>
-      </div>
+    <div className="min-h-screen bg-[#EAEEF4]">
+      <HeroSection />
+      <ProfitOpportunities />
+      <WealthEngines />
+      <ProofAuthority />
+      <CleanKitchenToolkit />
+      <GovernmentWhitepaper />
+      <ContactCTA />
     </div>
   );
 }
+
+export default App;
