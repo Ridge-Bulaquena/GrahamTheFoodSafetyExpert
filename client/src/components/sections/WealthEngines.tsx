@@ -111,7 +111,6 @@ const WealthEngines = () => {
                   <motion.div
                     className={`w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r ${engine.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
                     whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.6 }}
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 1.0 + index * 0.2 }}

@@ -101,7 +101,6 @@ const CleanKitchenToolkit = () => {
                 <motion.div
                   className={`w-24 h-24 rounded-full bg-gradient-to-r ${tool.color} flex items-center justify-center mb-6`}
                   whileHover={{ scale: 1.1, rotate: 360 }}
-                  transition={{ duration: 0.6 }}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 1.0 + index * 0.2 }}
@@ -153,7 +152,6 @@ const CleanKitchenToolkit = () => {
                 <motion.div
                   className="w-64 h-64 bg-white rounded-2xl shadow-2xl flex items-center justify-center border-2 border-gray-200"
                   whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 1.4 + index * 0.2 }}
