@@ -112,7 +112,7 @@ const HeroSection = () => {
                     transition={{ 
                       duration: 0.6, 
                       delay: 0.2,
-                      ease: "easeOut"
+                      ease: [0.22, 0.61, 0.36, 1]
                     }}
                   >
                     FOOD SAFETY SPECIALIST, RESTAURATEUR, SANITATION EXPERT
@@ -129,8 +129,8 @@ const HeroSection = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ 
                       duration: 0.7, 
-                      delay: 0.8,
-                      ease: "easeOut"
+                      delay: 0.4,
+                      ease: [0.22, 0.61, 0.36, 1]
                     }}
                   >
                     GRAHAM PONSARAN
@@ -148,8 +148,8 @@ const HeroSection = () => {
                       animate={{ opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" }}
                       transition={{ 
                         duration: 0.8, 
-                        delay: 1.4,
-                        ease: "easeOut"
+                        delay: 0.6,
+                        ease: [0.22, 0.61, 0.36, 1]
                       }}
                     >
                       Millions to be Made
@@ -162,8 +162,8 @@ const HeroSection = () => {
                       animate={{ opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" }}
                       transition={{ 
                         duration: 0.8, 
-                        delay: 2.2,
-                        ease: "easeOut"
+                        delay: 0.75,
+                        ease: [0.22, 0.61, 0.36, 1]
                       }}
                     >
                       from Food Safety
@@ -178,8 +178,8 @@ const HeroSection = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ 
                       duration: 0.7, 
-                      delay: 3.0,
-                      ease: "easeOut"
+                      delay: 0.95,
+                      ease: [0.22, 0.61, 0.36, 1]
                     }}
                   >
                     Food safety isn't just compliance. It's the world's biggest untapped wealth generator. 
@@ -210,7 +210,7 @@ const HeroSection = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ 
-                      duration: 0.5, 
+                      duration: 0.6, 
                       delay: 0.2,
                       ease: [0.22, 0.61, 0.36, 1]
                     }}
@@ -228,7 +228,7 @@ const HeroSection = () => {
                     initial={{ opacity: 0, y: 20, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ 
-                      duration: 0.5, 
+                      duration: 0.7, 
                       delay: 0.4,
                       ease: [0.22, 0.61, 0.36, 1]
                     }}
@@ -247,7 +247,7 @@ const HeroSection = () => {
                       initial={{ opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
                       animate={{ opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" }}
                       transition={{ 
-                        duration: 0.5, 
+                        duration: 0.8, 
                         delay: 0.6,
                         ease: [0.22, 0.61, 0.36, 1]
                       }}
@@ -261,7 +261,7 @@ const HeroSection = () => {
                       initial={{ opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
                       animate={{ opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" }}
                       transition={{ 
-                        duration: 0.5, 
+                        duration: 0.8, 
                         delay: 0.75,
                         ease: [0.22, 0.61, 0.36, 1]
                       }}
@@ -277,8 +277,8 @@ const HeroSection = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ 
-                      duration: 0.5, 
-                      delay: 1.25,
+                      duration: 0.7, 
+                      delay: 0.95,
                       ease: [0.22, 0.61, 0.36, 1]
                     }}
                   >
@@ -291,8 +291,8 @@ const HeroSection = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ 
-                      duration: 0.4, 
-                      delay: 1.65,
+                      duration: 0.6, 
+                      delay: 1.15,
                       ease: [0.22, 0.61, 0.36, 1]
                     }}
                   >
@@ -304,7 +304,7 @@ const HeroSection = () => {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ 
                         duration: 0.4, 
-                        delay: 1.65,
+                        delay: 1.15,
                         ease: [0.22, 0.61, 0.36, 1]
                       }}
                       whileHover={{ scale: 1.05 }}
@@ -321,7 +321,7 @@ const HeroSection = () => {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ 
                         duration: 0.4, 
-                        delay: 1.75,
+                        delay: 1.25,
                         ease: [0.22, 0.61, 0.36, 1]
                       }}
                       whileHover={{ scale: 1.05 }}
@@ -356,8 +356,8 @@ const HeroSection = () => {
                 y: prefersReducedMotion ? 0 : [0, -12, 0],
               }}
               transition={{ 
-                opacity: { duration: 0.8, delay: currentSlide === 1 ? 2.8 : 1.0, ease: "easeOut" },
-                scale: { duration: 0.8, delay: currentSlide === 1 ? 2.8 : 1.0, ease: "easeOut" },
+                opacity: { duration: 0.8, delay: currentSlide === 1 ? 0.6 : 0.6, ease: [0.22, 0.61, 0.36, 1] },
+                scale: { duration: 0.8, delay: currentSlide === 1 ? 0.6 : 0.6, ease: [0.22, 0.61, 0.36, 1] },
                 y: prefersReducedMotion ? {} : {
                   duration: 10,
                   repeat: Infinity,
