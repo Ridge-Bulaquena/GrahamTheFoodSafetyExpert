@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import grahamPortrait from '@/assets/graham-portrait.png';
 import grahamPortrait2 from '@/assets/graham-portrait-2.png';
+import grahamPortrait3 from '@/assets/graham-portrait-3.png';
 
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -578,7 +579,7 @@ const HeroSection = () => {
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={`portrait-${currentSlide}`}
-                    src={currentSlide === 2 ? grahamPortrait2 : grahamPortrait}
+                    src={currentSlide === 2 ? grahamPortrait2 : currentSlide === 3 ? grahamPortrait3 : grahamPortrait}
                     alt="Graham Ponsaran - Food Safety Expert"
                     className="w-full h-auto rounded-lg cursor-pointer"
                     initial={{ 
