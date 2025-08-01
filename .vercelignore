@@ -1,0 +1,6 @@
+
+server/
+*.ts
+node_modules/
+dist/
+.replit
