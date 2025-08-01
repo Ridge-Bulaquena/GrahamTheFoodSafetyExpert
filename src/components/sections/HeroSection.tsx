@@ -105,7 +105,7 @@ const HeroSection = () => {
                     style={{ 
                       fontFamily: 'Poppins, sans-serif',
                       fontSize: '16px',
-                      letterSpacing: '3px'
+                      letterSpacing: '1px'
                     }}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -138,7 +138,7 @@ const HeroSection = () => {
 
                   {/* Main Headline */}
                   <motion.h1 
-                    className="text-6xl md:text-8xl lg:text-9xl xl:text-[120px] 2xl:text-[160px] 3xl:text-[180px] 4xl:text-[200px] font-normal mb-5 md:mb-6 leading-[0.85]"
+                    className="text-5xl md:text-7xl lg:text-8xl xl:text-[110px] 2xl:text-[150px] 3xl:text-[170px] 4xl:text-[190px] font-normal mb-5 md:mb-6 leading-[0.85]"
                     style={{ fontFamily: 'League Gothic Condensed, sans-serif' }}
                   >
                     {/* First Line */}
@@ -205,7 +205,7 @@ const HeroSection = () => {
                     style={{ 
                       fontFamily: 'Poppins, sans-serif',
                       fontSize: '16px',
-                      letterSpacing: '3px'
+                      letterSpacing: '1px'
                     }}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -238,7 +238,7 @@ const HeroSection = () => {
 
                   {/* Main Headline */}
                   <motion.h1 
-                    className="text-6xl md:text-8xl lg:text-9xl xl:text-[120px] 2xl:text-[160px] 3xl:text-[180px] 4xl:text-[200px] font-normal mb-5 md:mb-6 leading-[0.85]"
+                    className="text-5xl md:text-7xl lg:text-8xl xl:text-[110px] 2xl:text-[150px] 3xl:text-[170px] 4xl:text-[190px] font-normal mb-5 md:mb-6 leading-[0.85]"
                     style={{ fontFamily: 'League Gothic Condensed, sans-serif' }}
                   >
                     {/* First Line */}
