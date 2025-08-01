@@ -71,11 +71,12 @@ const HeroSection = () => {
 
             {/* Main Headline */}
             <motion.h1 
-              className="text-6xl md:text-8xl lg:text-9xl xl:text-[120px] 2xl:text-[160px] 3xl:text-[180px] 4xl:text-[200px] font-normal text-transparent bg-clip-text bg-gradient-to-br from-[#C7D0D3] to-[#6D7284] mb-5 md:mb-6 leading-[0.9]"
+              className="text-6xl md:text-8xl lg:text-9xl xl:text-[120px] 2xl:text-[160px] 3xl:text-[180px] 4xl:text-[200px] font-normal mb-5 md:mb-6 leading-[0.9]"
               style={{ fontFamily: 'League Gothic Condensed, sans-serif' }}
             >
               {/* First Line */}
               <motion.div
+                className="text-transparent bg-clip-text bg-gradient-to-br from-[#C7D0D3] to-[#6D7284]"
                 initial={{ opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
                 animate={{ opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" }}
                 transition={{ 
@@ -89,6 +90,7 @@ const HeroSection = () => {
               
               {/* Second Line */}
               <motion.div
+                className="text-transparent bg-clip-text bg-gradient-to-br from-[#C7D0D3] to-[#6D7284]"
                 initial={{ opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
                 animate={{ opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" }}
                 transition={{ 
