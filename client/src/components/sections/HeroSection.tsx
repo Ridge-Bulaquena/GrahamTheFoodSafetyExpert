@@ -8,6 +8,8 @@ const HeroSection = () => {
   const portraitRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(1);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [previousSlide, setPreviousSlide] = useState(1);
+  const [isPortraitTransitioning, setIsPortraitTransitioning] = useState(false);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
@@ -23,14 +25,35 @@ const HeroSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentSlide(prev => prev === 3 ? 1 : prev + 1);
-        setIsTransitioning(false);
-      }, 300); // Transition duration
-    }, 8000); // 8 seconds total: 3 seconds for animations + 5 seconds pause
+      
+      // Check if portrait needs to change (slides 1->2 or 2->3 or 3->1)
+      const nextSlide = currentSlide === 3 ? 1 : currentSlide + 1;
+      const currentPortrait = currentSlide === 2 ? grahamPortrait2 : grahamPortrait;
+      const nextPortrait = nextSlide === 2 ? grahamPortrait2 : grahamPortrait;
+      
+      if (currentPortrait !== nextPortrait && !prefersReducedMotion) {
+        // Start portrait tear transition
+        setIsPortraitTransitioning(true);
+        setTimeout(() => {
+          setPreviousSlide(currentSlide);
+          setCurrentSlide(nextSlide);
+        }, 400); // Allow tear to happen
+        setTimeout(() => {
+          setIsPortraitTransitioning(false);
+          setIsTransitioning(false);
+        }, 800); // Complete transition
+      } else {
+        // Simple slide transition without portrait change
+        setTimeout(() => {
+          setPreviousSlide(currentSlide);
+          setCurrentSlide(nextSlide);
+          setIsTransitioning(false);
+        }, 300);
+      }
+    }, 8000); // 8 seconds total
 
     return () => clearInterval(interval);
-  }, []);
+  }, [currentSlide, prefersReducedMotion]);
 
   // Transition variants for motion blur effect
   const slideVariants = {
@@ -509,17 +532,17 @@ const HeroSection = () => {
             </AnimatePresence>
           </motion.div>
 
-          {/* Right Column - Portrait Image */}
+          {/* Right Column - Portrait Image with Tear Transition */}
           <motion.div 
             className="flex-1 flex justify-center items-center relative"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            {/* Portrait Image */}
+            {/* Portrait Container */}
             <motion.div
               ref={portraitRef}
-              className="relative z-0"
+              className="relative z-0 w-80 h-auto md:w-96 lg:w-[550px] xl:w-[650px]"
               style={{
                 y: prefersReducedMotion ? 0 : y,
               }}
@@ -539,14 +562,137 @@ const HeroSection = () => {
                 }
               }}
             >
-              <motion.img
-                src={currentSlide === 2 ? grahamPortrait2 : grahamPortrait}
-                alt="Graham Ponsaran - Food Safety Expert"
-                className="w-80 h-auto md:w-96 lg:w-[550px] xl:w-[650px] max-w-full rounded-lg"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, delay: 0.5 }}
-              />
+              {prefersReducedMotion || !isPortraitTransitioning ? (
+                // Simple crossfade for reduced motion or no transition
+                <motion.img
+                  key={`portrait-${currentSlide}`}
+                  src={currentSlide === 2 ? grahamPortrait2 : grahamPortrait}
+                  alt="Graham Ponsaran - Food Safety Expert"
+                  className="w-full h-auto rounded-lg"
+                  initial={{ opacity: prefersReducedMotion ? 1 : 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: prefersReducedMotion ? 0 : 0.6, ease: [0.22, 0.61, 0.36, 1] }}
+                />
+              ) : (
+                // Tear transition effect
+                <div className="relative w-full h-auto">
+                  {/* Background/Next Portrait */}
+                  <motion.img
+                    src={currentSlide === 2 ? grahamPortrait2 : grahamPortrait}
+                    alt="Graham Ponsaran - Food Safety Expert"
+                    className="w-full h-auto rounded-lg"
+                    initial={{ opacity: 0, scale: 1.02 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
+                  />
+                  
+                  {/* Top Half - Torn Away */}
+                  <motion.div
+                    className="absolute inset-0 overflow-hidden"
+                    initial={{ clipPath: "inset(0 0 50% 0)" }}
+                    animate={{ 
+                      clipPath: "inset(-20% 0 70% 0)",
+                      y: -40,
+                    }}
+                    exit={{ opacity: 0 }}
+                    transition={{ 
+                      duration: 0.7, 
+                      ease: [0.22, 0.61, 0.36, 1],
+                      opacity: { delay: 0.5, duration: 0.3 }
+                    }}
+                    style={{
+                      filter: "blur(2px)"
+                    }}
+                  >
+                    <motion.img
+                      src={previousSlide === 2 ? grahamPortrait2 : grahamPortrait}
+                      alt="Graham Ponsaran - Food Safety Expert"
+                      className="w-full h-auto rounded-lg"
+                      style={{
+                        filter: "blur(1px)"
+                      }}
+                    />
+                  </motion.div>
+                  
+                  {/* Bottom Half - Torn Away */}
+                  <motion.div
+                    className="absolute inset-0 overflow-hidden"
+                    initial={{ clipPath: "inset(50% 0 0 0)" }}
+                    animate={{ 
+                      clipPath: "inset(70% 0 -20% 0)",
+                      y: 40,
+                    }}
+                    exit={{ opacity: 0 }}
+                    transition={{ 
+                      duration: 0.7, 
+                      ease: [0.22, 0.61, 0.36, 1],
+                      opacity: { delay: 0.5, duration: 0.3 }
+                    }}
+                    style={{
+                      filter: "blur(2px)"
+                    }}
+                  >
+                    <motion.img
+                      src={previousSlide === 2 ? grahamPortrait2 : grahamPortrait}
+                      alt="Graham Ponsaran - Food Safety Expert"
+                      className="w-full h-auto rounded-lg"
+                      style={{
+                        filter: "blur(1px)"
+                      }}
+                    />
+                  </motion.div>
+                  
+                  {/* Motion blur layers for enhanced effect */}
+                  <motion.div
+                    className="absolute inset-0 overflow-hidden opacity-30"
+                    initial={{ clipPath: "inset(0 0 50% 0)" }}
+                    animate={{ 
+                      clipPath: "inset(-30% 0 80% 0)",
+                      y: -60,
+                    }}
+                    exit={{ opacity: 0 }}
+                    transition={{ 
+                      duration: 0.8, 
+                      ease: [0.22, 0.61, 0.36, 1],
+                      opacity: { delay: 0.4, duration: 0.4 }
+                    }}
+                    style={{
+                      filter: "blur(8px)"
+                    }}
+                  >
+                    <motion.img
+                      src={previousSlide === 2 ? grahamPortrait2 : grahamPortrait}
+                      alt=""
+                      className="w-full h-auto rounded-lg"
+                    />
+                  </motion.div>
+                  
+                  <motion.div
+                    className="absolute inset-0 overflow-hidden opacity-30"
+                    initial={{ clipPath: "inset(50% 0 0 0)" }}
+                    animate={{ 
+                      clipPath: "inset(80% 0 -30% 0)",
+                      y: 60,
+                    }}
+                    exit={{ opacity: 0 }}
+                    transition={{ 
+                      duration: 0.8, 
+                      ease: [0.22, 0.61, 0.36, 1],
+                      opacity: { delay: 0.4, duration: 0.4 }
+                    }}
+                    style={{
+                      filter: "blur(8px)"
+                    }}
+                  >
+                    <motion.img
+                      src={previousSlide === 2 ? grahamPortrait2 : grahamPortrait}
+                      alt=""
+                      className="w-full h-auto rounded-lg"
+                    />
+                  </motion.div>
+                </div>
+              )}
             </motion.div>
           </motion.div>
         </div>
