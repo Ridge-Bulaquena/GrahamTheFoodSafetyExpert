@@ -1,105 +1,228 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
 import { FileText, Download, TrendingUp, Building } from 'lucide-react';
 
 const GovernmentWhitepaper = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
-      <div className="container mx-auto px-6">
+    <section className="unified-section">
+      <div className="unified-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
           viewport={{ once: true }}
           className="text-center mb-12"
         >
           <motion.div
-            className="inline-flex items-center space-x-2 bg-gold/20 border border-gold/30 rounded-full px-6 py-3 mb-8"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
+            className="descriptor-text mb-4"
           >
-            <FileText className="w-5 h-5 text-gold" />
-            <span className="text-gold font-semibold">Government Whitepaper</span>
+            GOVERNMENT WHITEPAPER
           </motion.div>
           
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-serif">
-            The Economic Impact of
-            <span className="text-gray-300"> Clean Kitchens</span>
-          </h2>
+          <motion.h2 
+            className="headline-gradient text-5xl md:text-7xl lg:text-8xl xl:text-[110px] 2xl:text-[150px] 3xl:text-[170px] 4xl:text-[190px] mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <motion.div
+              initial={{ clipPath: "inset(0 100% 0 0)" }}
+              whileInView={{ clipPath: "inset(0 0% 0 0)" }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              The Economic Impact
+            </motion.div>
+            <motion.div
+              initial={{ clipPath: "inset(0 100% 0 0)" }}
+              whileInView={{ clipPath: "inset(0 0% 0 0)" }}
+              transition={{ duration: 0.8, delay: 0.45 }}
+              viewport={{ once: true }}
+            >
+              of Clean Kitchens
+            </motion.div>
+          </motion.h2>
           
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
+          <motion.p 
+            className="body-text mx-auto mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
             A comprehensive analysis of how food safety compliance drives economic growth, 
             reduces healthcare costs, and creates sustainable business opportunities.
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
             viewport={{ once: true }}
             className="text-center"
           >
-            <div className="w-16 h-16 bg-gradient-to-r from-gold to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
-              <TrendingUp className="w-8 h-8 text-black" />
-            </div>
-            <h3 className="text-xl font-bold mb-2">Economic Benefits</h3>
-            <p className="text-gray-300">
+            <motion.div 
+              className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              whileHover={{ scale: 1.1 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 1.0 }}
+              viewport={{ once: true }}
+            >
+              <TrendingUp className="w-8 h-8 text-white" />
+            </motion.div>
+            <motion.h3 
+              className="name-text mb-2"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.1 }}
+              viewport={{ once: true }}
+            >
+              Economic Benefits
+            </motion.h3>
+            <motion.p 
+              className="text-[#848DAB]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.2 }}
+              viewport={{ once: true }}
+            >
               How food safety drives revenue growth and market expansion
-            </p>
+            </motion.p>
           </motion.div>
           
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 1.0, ease: [0.22, 0.61, 0.36, 1] }}
             viewport={{ once: true }}
             className="text-center"
           >
-            <div className="w-16 h-16 bg-gradient-to-r from-orange to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <motion.div 
+              className="w-16 h-16 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              whileHover={{ scale: 1.1 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 1.2 }}
+              viewport={{ once: true }}
+            >
               <Building className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-xl font-bold mb-2">Policy Recommendations</h3>
-            <p className="text-gray-300">
+            </motion.div>
+            <motion.h3 
+              className="name-text mb-2"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.3 }}
+              viewport={{ once: true }}
+            >
+              Policy Recommendations
+            </motion.h3>
+            <motion.p 
+              className="text-[#848DAB]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.4 }}
+              viewport={{ once: true }}
+            >
               Strategic frameworks for government and industry collaboration
-            </p>
+            </motion.p>
           </motion.div>
           
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 1.2, ease: [0.22, 0.61, 0.36, 1] }}
             viewport={{ once: true }}
             className="text-center"
           >
-            <div className="w-16 h-16 bg-gradient-to-r from-blue to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <motion.div 
+              className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              whileHover={{ scale: 1.1 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 1.4 }}
+              viewport={{ once: true }}
+            >
               <FileText className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-xl font-bold mb-2">Implementation Guide</h3>
-            <p className="text-gray-300">
+            </motion.div>
+            <motion.h3 
+              className="name-text mb-2"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.5 }}
+              viewport={{ once: true }}
+            >
+              Implementation Guide
+            </motion.h3>
+            <motion.p 
+              className="text-[#848DAB]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.6 }}
+              viewport={{ once: true }}
+            >
               Step-by-step roadmap for food safety transformation
-            </p>
+            </motion.p>
           </motion.div>
         </div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 1.8, ease: [0.22, 0.61, 0.36, 1] }}
           viewport={{ once: true }}
           className="text-center"
         >
-          <Button 
-            className="w-[220px] rounded-full bg-gradient-to-r from-gray-200 to-gray-300 hover:from-gray-300 hover:to-gray-200 text-gray-900 font-semibold px-8 py-4 text-lg shadow-2xl"
-            size="lg"
+          <motion.button 
+            className="glass-button w-[220px]"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: 2.0, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true }}
+            whileHover={{ 
+              scale: 1.02, 
+              y: -2,
+              boxShadow: '0 6px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.4)'
+            }}
+            whileTap={{ scale: 0.98 }}
           >
-            <Download className="w-5 h-5 mr-2" />
-            Download "The Economic Impact of Clean Kitchens"
-          </Button>
+            <span className="relative z-10 flex items-center justify-center">
+              <Download className="w-4 h-4 mr-2" />
+              Download Whitepaper
+            </span>
+            {/* Shine Effect */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+              style={{
+                transform: 'translateX(-100%) skewX(-20deg)',
+                width: '60%',
+                height: '100%'
+              }}
+              animate={{
+                x: ['-100%', '200%']
+              }}
+              transition={{
+                duration: 1,
+                ease: [0.25, 0.1, 0.25, 1],
+                repeat: Infinity,
+                repeatDelay: 3
+              }}
+              whileHover={{
+                x: ['-100%', '200%'],
+                transition: {
+                  duration: 0.6,
+                  ease: [0.25, 0.1, 0.25, 1]
+                }
+              }}
+            />
+          </motion.button>
         </motion.div>
       </div>
     </section>
