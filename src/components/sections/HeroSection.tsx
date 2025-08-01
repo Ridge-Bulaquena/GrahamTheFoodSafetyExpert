@@ -26,7 +26,7 @@ const HeroSection = () => {
         setCurrentSlide(prev => prev === 1 ? 2 : 1);
         setIsTransitioning(false);
       }, 300); // Transition duration
-    }, 4000);
+    }, 8000); // 8 seconds total: 3 seconds for animations + 5 seconds pause
 
     return () => clearInterval(interval);
   }, []);
@@ -298,8 +298,11 @@ const HeroSection = () => {
                   >
                     {/* First Button */}
                     <motion.button
-                      className="px-8 py-4 bg-white/80 backdrop-blur-md border border-white/20 text-[#1A1B1D] font-semibold rounded-full shadow-lg hover:bg-white/90 hover:shadow-xl transition-all duration-300 text-lg"
-                      style={{ fontFamily: 'Poppins, sans-serif' }}
+                      className="relative px-6 py-3 bg-gradient-to-b from-white to-[#B4BBC2] text-[#1A1B1D] font-bold uppercase tracking-wide rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-lg overflow-hidden backdrop-blur-sm border border-white/30"
+                      style={{ 
+                        fontFamily: 'Poppins, sans-serif',
+                        boxShadow: '0 4px 15px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.3)'
+                      }}
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ 
@@ -307,16 +310,48 @@ const HeroSection = () => {
                         delay: 1.15,
                         ease: [0.22, 0.61, 0.36, 1]
                       }}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ 
+                        scale: 1.02, 
+                        y: -2,
+                        boxShadow: '0 6px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.4)'
+                      }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      REGISTER FOR TRAINING
+                      <span className="relative z-10">REGISTER FOR TRAINING</span>
+                      {/* Shine Effect */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                        style={{
+                          transform: 'translateX(-100%) skewX(-20deg)',
+                          width: '60%',
+                          height: '100%'
+                        }}
+                        animate={{
+                          x: ['-100%', '200%']
+                        }}
+                        transition={{
+                          duration: 1,
+                          ease: [0.25, 0.1, 0.25, 1],
+                          repeat: Infinity,
+                          repeatDelay: 3
+                        }}
+                        whileHover={{
+                          x: ['-100%', '200%'],
+                          transition: {
+                            duration: 0.6,
+                            ease: [0.25, 0.1, 0.25, 1]
+                          }
+                        }}
+                      />
                     </motion.button>
 
                     {/* Second Button */}
                     <motion.button
-                      className="px-8 py-4 bg-white/60 backdrop-blur-md border border-white/30 text-[#1A1B1D] font-semibold rounded-full shadow-lg hover:bg-white/80 hover:shadow-xl transition-all duration-300 text-lg"
-                      style={{ fontFamily: 'Poppins, sans-serif' }}
+                      className="relative px-6 py-3 bg-gradient-to-b from-white to-[#B4BBC2] text-[#1A1B1D] font-bold uppercase tracking-wide rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-lg overflow-hidden backdrop-blur-sm border border-white/30"
+                      style={{ 
+                        fontFamily: 'Poppins, sans-serif',
+                        boxShadow: '0 4px 15px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.3)'
+                      }}
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ 
@@ -324,10 +359,39 @@ const HeroSection = () => {
                         delay: 1.25,
                         ease: [0.22, 0.61, 0.36, 1]
                       }}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ 
+                        scale: 1.02, 
+                        y: -2,
+                        boxShadow: '0 6px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.4)'
+                      }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      VIEW CONSULTING SERVICES
+                      <span className="relative z-10">VIEW CONSULTING SERVICES</span>
+                      {/* Shine Effect */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                        style={{
+                          transform: 'translateX(-100%) skewX(-20deg)',
+                          width: '60%',
+                          height: '100%'
+                        }}
+                        animate={{
+                          x: ['-100%', '200%']
+                        }}
+                        transition={{
+                          duration: 1,
+                          ease: [0.25, 0.1, 0.25, 1],
+                          repeat: Infinity,
+                          repeatDelay: 3
+                        }}
+                        whileHover={{
+                          x: ['-100%', '200%'],
+                          transition: {
+                            duration: 0.6,
+                            ease: [0.25, 0.1, 0.25, 1]
+                          }
+                        }}
+                      />
                     </motion.button>
                   </motion.div>
                 </motion.div>
