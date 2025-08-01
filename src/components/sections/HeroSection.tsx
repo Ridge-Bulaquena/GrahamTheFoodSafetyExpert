@@ -298,7 +298,7 @@ const HeroSection = () => {
                   >
                     {/* First Button */}
                     <motion.button
-                      className="px-8 py-4 bg-[#1A1B1D] text-white font-semibold rounded-full hover:bg-[#2A2B2D] transition-colors duration-300 text-lg"
+                      className="px-8 py-4 bg-white/80 backdrop-blur-md border border-white/20 text-[#1A1B1D] font-semibold rounded-full shadow-lg hover:bg-white/90 hover:shadow-xl transition-all duration-300 text-lg"
                       style={{ fontFamily: 'Poppins, sans-serif' }}
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -315,7 +315,7 @@ const HeroSection = () => {
 
                     {/* Second Button */}
                     <motion.button
-                      className="px-8 py-4 border-2 border-[#1A1B1D] text-[#1A1B1D] font-semibold rounded-full hover:bg-[#1A1B1D] hover:text-white transition-all duration-300 text-lg"
+                      className="px-8 py-4 bg-white/60 backdrop-blur-md border border-white/30 text-[#1A1B1D] font-semibold rounded-full shadow-lg hover:bg-white/80 hover:shadow-xl transition-all duration-300 text-lg"
                       style={{ fontFamily: 'Poppins, sans-serif' }}
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
