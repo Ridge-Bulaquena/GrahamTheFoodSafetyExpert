@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import grahamPortrait from '@/assets/graham-portrait.png';
+import grahamPortrait2 from '@/assets/graham-portrait-2.png';
 
 const HeroSection2 = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -168,17 +169,17 @@ const HeroSection2 = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Portrait Image */}
+          {/* Right Column - Portrait Images */}
           <motion.div 
             className="flex-1 flex justify-center items-center relative"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            {/* Portrait Image */}
+            {/* First Portrait Image */}
             <motion.div
               ref={portraitRef}
-              className="relative z-0"
+              className="relative z-10"
               style={{
                 y: prefersReducedMotion ? 0 : y,
               }}
@@ -197,14 +198,62 @@ const HeroSection2 = () => {
                   ease: "easeInOut"
                 }
               }}
+              whileHover={{ 
+                scale: 1.05,
+                rotate: 2,
+                transition: { duration: 0.3 }
+              }}
             >
               <motion.img
                 src={grahamPortrait}
                 alt="Graham Ponsaran - Food Safety Expert"
-                className="w-80 h-auto md:w-96 lg:w-[550px] xl:w-[650px] max-w-full rounded-lg"
+                className="w-80 h-auto md:w-96 lg:w-[550px] xl:w-[650px] max-w-full rounded-lg shadow-2xl"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.5 }}
+              />
+            </motion.div>
+
+            {/* Second Portrait Image - Floating with Different Animation */}
+            <motion.div
+              className="absolute z-0 -right-8 top-16 lg:-right-16 lg:top-24"
+              initial={{ opacity: 0, scale: 0.9, x: 100 }}
+              animate={{ 
+                opacity: 0.8, 
+                scale: 1,
+                x: 0,
+                y: prefersReducedMotion ? 0 : [0, -20, 0],
+              }}
+              transition={{ 
+                opacity: { duration: 0.8, delay: 1.5, ease: "easeOut" },
+                scale: { duration: 0.8, delay: 1.5, ease: "easeOut" },
+                x: { duration: 0.8, delay: 1.5, ease: "easeOut" },
+                y: prefersReducedMotion ? {} : {
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 2
+                }
+              }}
+              whileHover={{ 
+                scale: 1.1,
+                opacity: 1,
+                rotate: -3,
+                z: 20,
+                transition: { duration: 0.3 }
+              }}
+            >
+              <motion.img
+                src={grahamPortrait2}
+                alt="Graham Ponsaran - Additional Portrait"
+                className="w-48 h-auto md:w-56 lg:w-72 xl:w-80 max-w-full rounded-lg shadow-xl border-4 border-white/50"
+                initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
+                animate={{ opacity: 1, scale: 1, rotate: 5 }}
+                transition={{ duration: 1, delay: 1.2 }}
+                whileHover={{
+                  rotate: 0,
+                  transition: { duration: 0.3 }
+                }}
               />
             </motion.div>
           </motion.div>
