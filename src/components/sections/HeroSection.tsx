@@ -298,9 +298,12 @@ const HeroSection = () => {
                   >
                     {/* First Button */}
                     <motion.button
-                      className="relative px-6 py-3 bg-gradient-to-b from-white to-[#B4BBC2] text-[#1A1B1D] font-bold uppercase tracking-wide rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-lg overflow-hidden backdrop-blur-sm border border-white/30"
+                      className="relative px-4 py-2.5 bg-gradient-to-br from-white to-[#B4BBC2] text-[#1A1B1D] font-normal uppercase tracking-wide rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-xs overflow-hidden backdrop-blur-sm border border-white/30"
                       style={{ 
                         fontFamily: 'Poppins, sans-serif',
+                        fontSize: '11px',
+                        letterSpacing: '1px',
+                        background: 'linear-gradient(135deg, #FFFFFF 0%, #B4BBC2 100%)',
                         boxShadow: '0 4px 15px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.3)'
                       }}
                       initial={{ opacity: 0, scale: 0.95 }}
@@ -347,9 +350,12 @@ const HeroSection = () => {
 
                     {/* Second Button */}
                     <motion.button
-                      className="relative px-6 py-3 bg-gradient-to-b from-white to-[#B4BBC2] text-[#1A1B1D] font-bold uppercase tracking-wide rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-lg overflow-hidden backdrop-blur-sm border border-white/30"
+                      className="relative px-4 py-2.5 bg-gradient-to-br from-white to-[#B4BBC2] text-[#1A1B1D] font-normal uppercase tracking-wide rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-xs overflow-hidden backdrop-blur-sm border border-white/30"
                       style={{ 
                         fontFamily: 'Poppins, sans-serif',
+                        fontSize: '11px',
+                        letterSpacing: '1px',
+                        background: 'linear-gradient(135deg, #FFFFFF 0%, #B4BBC2 100%)',
                         boxShadow: '0 4px 15px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.3)'
                       }}
                       initial={{ opacity: 0, scale: 0.95 }}
