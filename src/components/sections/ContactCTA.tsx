@@ -115,7 +115,12 @@ const ContactCTA = () => {
                     />
                   </motion.div>
                   <motion.button 
-                    className="glass-button w-[220px]"
+                    className="relative px-4 py-2.5 glass-button w-[220px]"
+                    style={{ 
+                      fontFamily: 'Poppins, sans-serif',
+                      fontSize: '11px',
+                      letterSpacing: '1px'
+                    }}
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4, delay: 1.4, ease: [0.22, 0.61, 0.36, 1] }}
@@ -251,7 +256,12 @@ const ContactCTA = () => {
                   className="flex-1 p-3 bg-white text-[#1A1B1D] border-0 rounded-lg"
                 />
                 <motion.button 
-                  className="glass-button w-[220px]"
+                  className="relative px-4 py-2.5 glass-button w-[220px]"
+                  style={{ 
+                    fontFamily: 'Poppins, sans-serif',
+                    fontSize: '11px',
+                    letterSpacing: '1px'
+                  }}
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.4, ease: [0.22, 0.61, 0.36, 1] }}

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import grahamPortrait from '@/assets/graham-portrait.png';
+import grahamPortrait from '@/assets/graham-051.png';
 
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
