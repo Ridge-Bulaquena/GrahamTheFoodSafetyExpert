@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import grahamPortrait from '@/assets/graham-portrait.png';
 
-const HeroSection = () => {
+const HeroSection2 = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const portraitRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -46,9 +46,9 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
-                duration: 0.6, 
+                duration: 0.5, 
                 delay: 0.2,
-                ease: "easeOut"
+                ease: [0.22, 0.61, 0.36, 1]
               }}
             >
               FOOD SAFETY SPECIALIST, RESTAURATEUR, SANITATION EXPERT
@@ -64,9 +64,9 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ 
-                duration: 0.7, 
-                delay: 0.8,
-                ease: "easeOut"
+                duration: 0.5, 
+                delay: 0.4,
+                ease: [0.22, 0.61, 0.36, 1]
               }}
             >
               GRAHAM PONSARAN
@@ -83,12 +83,12 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
                 animate={{ opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" }}
                 transition={{ 
-                  duration: 0.8, 
-                  delay: 1.4,
-                  ease: "easeOut"
+                  duration: 0.5, 
+                  delay: 0.6,
+                  ease: [0.22, 0.61, 0.36, 1]
                 }}
               >
-                Millions to be Made
+                Elevate Your
               </motion.div>
               
               {/* Second Line */}
@@ -97,31 +97,75 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
                 animate={{ opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" }}
                 transition={{ 
-                  duration: 0.8, 
-                  delay: 2.2,
-                  ease: "easeOut"
+                  duration: 0.5, 
+                  delay: 0.75,
+                  ease: [0.22, 0.61, 0.36, 1]
                 }}
               >
-                from Food Safety
+                Food Safety Standards
               </motion.div>
             </motion.h1>
 
-            {/* Descriptive Paragraph */}
+            {/* Subhead */}
             <motion.p 
               className="text-lg md:text-xl text-[#1A1B1D] max-w-[700px] leading-relaxed mt-4 md:mt-6"
               style={{ fontFamily: 'Poppins, sans-serif' }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
-                duration: 0.7, 
-                delay: 3.0,
-                ease: "easeOut"
+                duration: 0.5, 
+                delay: 1.25,
+                ease: [0.22, 0.61, 0.36, 1]
               }}
             >
-              Food safety isn't just compliance. It's the world's biggest untapped wealth generator. 
-              Learn how Graham Ponsaran helps restaurants, suppliers, governments, and even consumers 
-              turn safety into profit.
+              Achieve full regulatory compliance and unlock greater market opportunities with Graham's expert-led training and consulting.
             </motion.p>
+
+            {/* Action Buttons */}
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 mt-8 md:mt-10"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.4, 
+                delay: 1.65,
+                ease: [0.22, 0.61, 0.36, 1]
+              }}
+            >
+              {/* First Button */}
+              <motion.button
+                className="px-8 py-4 bg-[#1A1B1D] text-white font-semibold rounded-full hover:bg-[#2A2B2D] transition-colors duration-300 text-lg"
+                style={{ fontFamily: 'Poppins, sans-serif' }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ 
+                  duration: 0.4, 
+                  delay: 1.65,
+                  ease: [0.22, 0.61, 0.36, 1]
+                }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                REGISTER FOR TRAINING
+              </motion.button>
+
+              {/* Second Button */}
+              <motion.button
+                className="px-8 py-4 border-2 border-[#1A1B1D] text-[#1A1B1D] font-semibold rounded-full hover:bg-[#1A1B1D] hover:text-white transition-all duration-300 text-lg"
+                style={{ fontFamily: 'Poppins, sans-serif' }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ 
+                  duration: 0.4, 
+                  delay: 1.75,
+                  ease: [0.22, 0.61, 0.36, 1]
+                }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                VIEW CONSULTING SERVICES
+              </motion.button>
+            </motion.div>
           </motion.div>
 
           {/* Right Column - Portrait Image */}
@@ -145,8 +189,8 @@ const HeroSection = () => {
                 y: prefersReducedMotion ? 0 : [0, -12, 0],
               }}
               transition={{ 
-                opacity: { duration: 0.8, delay: 2.8, ease: "easeOut" },
-                scale: { duration: 0.8, delay: 2.8, ease: "easeOut" },
+                opacity: { duration: 0.8, delay: 1.0, ease: "easeOut" },
+                scale: { duration: 0.8, delay: 1.0, ease: "easeOut" },
                 y: prefersReducedMotion ? {} : {
                   duration: 10,
                   repeat: Infinity,
@@ -170,4 +214,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default HeroSection2; 
