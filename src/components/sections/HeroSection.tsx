@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import grahamPortrait from '@/assets/graham-portrait.png';
 import grahamPortrait2 from '@/assets/graham-portrait-2.png';
+import grahamPortrait3 from '@/assets/graham-portrait-3.png';
 
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -547,16 +548,16 @@ const HeroSection = () => {
               <motion.img
                 src={grahamPortrait}
                 alt="Graham Ponsaran - Food Safety Expert"
-                className="w-80 h-auto md:w-96 lg:w-[550px] xl:w-[650px] max-w-full rounded-lg shadow-2xl"
+                className="w-80 h-auto md:w-96 lg:w-[550px] xl:w-[650px] max-w-full rounded-lg"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.5 }}
               />
             </motion.div>
 
-            {/* Second Portrait Image - Visible only on Slide 2 */}
+            {/* Second Portrait Image - Slide 1 */}
             <AnimatePresence>
-              {currentSlide === 2 && (
+              {currentSlide === 1 && (
                 <motion.div
                   className="absolute z-20 right-4 top-12 md:right-8 md:top-16 lg:right-12 lg:top-20 xl:right-16 xl:top-24"
                   initial={{ opacity: 0, scale: 0.7, x: 50, rotate: 15 }}
@@ -595,14 +596,126 @@ const HeroSection = () => {
                   }}
                 >
                   <motion.img
-                    src={grahamPortrait2}
-                    alt="Graham Ponsaran - Additional Portrait"
-                    className="w-32 h-auto md:w-40 lg:w-48 xl:w-56 max-w-full rounded-lg shadow-2xl border-2 border-white/70 bg-white/10 backdrop-blur-sm"
+                    src={grahamPortrait}
+                    alt="Graham Ponsaran - Portrait Slide 1"
+                    className="w-32 h-auto md:w-40 lg:w-48 xl:w-56 max-w-full rounded-lg border-2 border-white/70 bg-white/10 backdrop-blur-sm"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, delay: 1.0 }}
                     whileHover={{
                       rotate: 3,
+                      transition: { duration: 0.3 }
+                    }}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Second Portrait Image - Slide 2 */}
+            <AnimatePresence>
+              {currentSlide === 2 && (
+                <motion.div
+                  className="absolute z-20 right-4 top-12 md:right-8 md:top-16 lg:right-12 lg:top-20 xl:right-16 xl:top-24"
+                  initial={{ opacity: 0, scale: 0.7, x: 50, rotate: 15 }}
+                  animate={{ 
+                    opacity: 1, 
+                    scale: 1,
+                    x: 0,
+                    rotate: -8,
+                    y: prefersReducedMotion ? 0 : [0, -15, 0],
+                  }}
+                  exit={{ 
+                    opacity: 0, 
+                    scale: 0.7, 
+                    x: 50, 
+                    rotate: 15,
+                    transition: { duration: 0.5 }
+                  }}
+                  transition={{ 
+                    opacity: { duration: 0.8, delay: 0.8, ease: "easeOut" },
+                    scale: { duration: 0.8, delay: 0.8, ease: "easeOut" },
+                    x: { duration: 0.8, delay: 0.8, ease: "easeOut" },
+                    rotate: { duration: 0.8, delay: 0.8, ease: "easeOut" },
+                    y: prefersReducedMotion ? {} : {
+                      duration: 7,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1.5
+                    }
+                  }}
+                  whileHover={{ 
+                    scale: 1.15,
+                    opacity: 1,
+                    rotate: 5,
+                    zIndex: 30,
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  <motion.img
+                    src={grahamPortrait2}
+                    alt="Graham Ponsaran - Portrait Slide 2"
+                    className="w-32 h-auto md:w-40 lg:w-48 xl:w-56 max-w-full rounded-lg border-2 border-white/70 bg-white/10 backdrop-blur-sm"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, delay: 1.0 }}
+                    whileHover={{
+                      rotate: -3,
+                      transition: { duration: 0.3 }
+                    }}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Third Portrait Image - Slide 3 */}
+            <AnimatePresence>
+              {currentSlide === 3 && (
+                <motion.div
+                  className="absolute z-20 right-4 top-12 md:right-8 md:top-16 lg:right-12 lg:top-20 xl:right-16 xl:top-24"
+                  initial={{ opacity: 0, scale: 0.7, x: 50, rotate: 15 }}
+                  animate={{ 
+                    opacity: 1, 
+                    scale: 1,
+                    x: 0,
+                    rotate: 12,
+                    y: prefersReducedMotion ? 0 : [0, -20, 0],
+                  }}
+                  exit={{ 
+                    opacity: 0, 
+                    scale: 0.7, 
+                    x: 50, 
+                    rotate: 15,
+                    transition: { duration: 0.5 }
+                  }}
+                  transition={{ 
+                    opacity: { duration: 0.8, delay: 0.8, ease: "easeOut" },
+                    scale: { duration: 0.8, delay: 0.8, ease: "easeOut" },
+                    x: { duration: 0.8, delay: 0.8, ease: "easeOut" },
+                    rotate: { duration: 0.8, delay: 0.8, ease: "easeOut" },
+                    y: prefersReducedMotion ? {} : {
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1.5
+                    }
+                  }}
+                  whileHover={{ 
+                    scale: 1.15,
+                    opacity: 1,
+                    rotate: -8,
+                    zIndex: 30,
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  <motion.img
+                    src={grahamPortrait3}
+                    alt="Graham Ponsaran - Portrait Slide 3"
+                    className="w-32 h-auto md:w-40 lg:w-48 xl:w-56 max-w-full rounded-lg border-2 border-white/70 bg-white/10 backdrop-blur-sm"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, delay: 1.0 }}
+                    whileHover={{
+                      rotate: 6,
                       transition: { duration: 0.3 }
                     }}
                   />
