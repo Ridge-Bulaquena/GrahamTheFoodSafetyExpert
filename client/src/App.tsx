@@ -1,16 +1,25 @@
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen bg-[#EAEEF4] flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-[#1A1B1D] mb-4">
-          Test - React App is Working
+    <div style={{ 
+      minHeight: '100vh', 
+      backgroundColor: '#EAEEF4', 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center' 
+    }}>
+      <div style={{ textAlign: 'center' }}>
+        <h1 style={{ 
+          fontSize: '48px', 
+          fontWeight: 'bold', 
+          color: '#1A1B1D', 
+          marginBottom: '16px' 
+        }}>
+          React App is Working!
         </h1>
-        <p className="text-lg text-[#848DAB]">
-          Migration in progress...
+        <p style={{ fontSize: '20px', color: '#848DAB' }}>
+          Migration successful - Tailwind may be loading...
         </p>
       </div>
     </div>
   );
 }
-
-export default App;
