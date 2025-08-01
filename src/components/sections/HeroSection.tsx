@@ -298,14 +298,11 @@ const HeroSection = () => {
                   >
                     {/* First Button */}
                     <motion.button
-                      className="relative px-4 py-2.5 bg-gradient-to-br from-white to-[#B4BBC2] text-[#1A1B1D] font-normal uppercase tracking-wide shadow-lg hover:shadow-xl transition-all duration-300 text-xs overflow-hidden backdrop-blur-sm border border-white/30"
+                      className="relative px-4 py-2.5 glass-button w-[220px]"
                       style={{ 
                         fontFamily: 'Poppins, sans-serif',
                         fontSize: '11px',
-                        letterSpacing: '1px',
-                        background: 'linear-gradient(135deg, #FFFFFF 0%, #B4BBC2 100%)',
-                        borderRadius: '220px',
-                        boxShadow: '0 4px 15px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.3)'
+                        letterSpacing: '1px'
                       }}
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -322,43 +319,16 @@ const HeroSection = () => {
                       whileTap={{ scale: 0.98 }}
                     >
                       <span className="relative z-10">REGISTER FOR TRAINING</span>
-                      {/* Shine Effect */}
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                        style={{
-                          transform: 'translateX(-100%) skewX(-20deg)',
-                          width: '60%',
-                          height: '100%'
-                        }}
-                        animate={{
-                          x: ['-100%', '200%']
-                        }}
-                        transition={{
-                          duration: 1,
-                          ease: [0.25, 0.1, 0.25, 1],
-                          repeat: Infinity,
-                          repeatDelay: 3
-                        }}
-                        whileHover={{
-                          x: ['-100%', '200%'],
-                          transition: {
-                            duration: 0.6,
-                            ease: [0.25, 0.1, 0.25, 1]
-                          }
-                        }}
-                      />
+                      <div className="shine-effect"></div>
                     </motion.button>
 
                     {/* Second Button */}
                     <motion.button
-                      className="relative px-4 py-2.5 bg-gradient-to-br from-white to-[#B4BBC2] text-[#1A1B1D] font-normal uppercase tracking-wide shadow-lg hover:shadow-xl transition-all duration-300 text-xs overflow-hidden backdrop-blur-sm border border-white/30"
+                      className="relative px-4 py-2.5 glass-button w-[220px]"
                       style={{ 
                         fontFamily: 'Poppins, sans-serif',
                         fontSize: '11px',
-                        letterSpacing: '1px',
-                        background: 'linear-gradient(135deg, #FFFFFF 0%, #B4BBC2 100%)',
-                        borderRadius: '220px',
-                        boxShadow: '0 4px 15px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.3)'
+                        letterSpacing: '1px'
                       }}
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -375,31 +345,7 @@ const HeroSection = () => {
                       whileTap={{ scale: 0.98 }}
                     >
                       <span className="relative z-10">VIEW CONSULTING SERVICES</span>
-                      {/* Shine Effect */}
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                        style={{
-                          transform: 'translateX(-100%) skewX(-20deg)',
-                          width: '60%',
-                          height: '100%'
-                        }}
-                        animate={{
-                          x: ['-100%', '200%']
-                        }}
-                        transition={{
-                          duration: 1,
-                          ease: [0.25, 0.1, 0.25, 1],
-                          repeat: Infinity,
-                          repeatDelay: 3
-                        }}
-                        whileHover={{
-                          x: ['-100%', '200%'],
-                          transition: {
-                            duration: 0.6,
-                            ease: [0.25, 0.1, 0.25, 1]
-                          }
-                        }}
-                      />
+                      <div className="shine-effect"></div>
                     </motion.button>
                   </motion.div>
                 </motion.div>

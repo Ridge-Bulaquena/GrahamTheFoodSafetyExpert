@@ -197,31 +197,7 @@ const GovernmentWhitepaper = () => {
               <Download className="w-4 h-4 mr-2" />
               Download Whitepaper
             </span>
-            {/* Shine Effect */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-              style={{
-                transform: 'translateX(-100%) skewX(-20deg)',
-                width: '60%',
-                height: '100%'
-              }}
-              animate={{
-                x: ['-100%', '200%']
-              }}
-              transition={{
-                duration: 1,
-                ease: [0.25, 0.1, 0.25, 1],
-                repeat: Infinity,
-                repeatDelay: 3
-              }}
-              whileHover={{
-                x: ['-100%', '200%'],
-                transition: {
-                  duration: 0.6,
-                  ease: [0.25, 0.1, 0.25, 1]
-                }
-              }}
-            />
+            <div className="shine-effect"></div>
           </motion.button>
         </motion.div>
       </div>

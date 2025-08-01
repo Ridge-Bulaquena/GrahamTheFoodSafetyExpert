@@ -167,46 +167,22 @@ const WealthEngines = () => {
                     </ul>
                   </div>
                   
-                  <motion.button 
-                    className="glass-button w-[220px]"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.4, delay: 1.6 + index * 0.2, ease: [0.22, 0.61, 0.36, 1] }}
-                    viewport={{ once: true }}
-                    whileHover={{ 
-                      scale: 1.02, 
-                      y: -2,
-                      boxShadow: '0 6px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.4)'
-                    }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <span className="relative z-10">{engine.ctaText}</span>
-                    {/* Shine Effect */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                      style={{
-                        transform: 'translateX(-100%) skewX(-20deg)',
-                        width: '60%',
-                        height: '100%'
-                      }}
-                      animate={{
-                        x: ['-100%', '200%']
-                      }}
-                      transition={{
-                        duration: 1,
-                        ease: [0.25, 0.1, 0.25, 1],
-                        repeat: Infinity,
-                        repeatDelay: 3
-                      }}
-                      whileHover={{
-                        x: ['-100%', '200%'],
-                        transition: {
-                          duration: 0.6,
-                          ease: [0.25, 0.1, 0.25, 1]
-                        }
-                      }}
-                    />
-                  </motion.button>
+                                     <motion.button 
+                     className="glass-button w-[220px]"
+                     initial={{ opacity: 0, scale: 0.95 }}
+                     whileInView={{ opacity: 1, scale: 1 }}
+                     transition={{ duration: 0.4, delay: 1.6 + index * 0.2, ease: [0.22, 0.61, 0.36, 1] }}
+                     viewport={{ once: true }}
+                     whileHover={{ 
+                       scale: 1.02, 
+                       y: -2,
+                       boxShadow: '0 6px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.4)'
+                     }}
+                     whileTap={{ scale: 0.98 }}
+                   >
+                     <span className="relative z-10">{engine.ctaText}</span>
+                     <div className="shine-effect"></div>
+                   </motion.button>
                 </div>
               </div>
             </motion.div>
