@@ -6,161 +6,178 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+/* Design System Tokens */
+:root {
+  /* Colors */
+  --color-background: #EAEEF4;
+  --color-primary-text: #1A1B1D;
+  --color-descriptor-text: #848DAB;
+  --color-gradient-start: #C7D0D3;
+  --color-gradient-end: #6D7284;
+  --color-button-gradient-start: #FFFFFF;
+  --color-button-gradient-end: #B4BBC2;
+  
+  /* Typography */
+  --font-headline: 'League Gothic Condensed', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+  
+  /* Spacing */
+  --section-padding: 5rem;
+  --container-max-width: 1250px;
+  --text-max-width: 650px;
+  
+  /* Animation */
+  --ease-smooth: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --animation-duration: 0.5s;
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--color-primary-text);
+  background-color: var(--color-background);
+}
+
+/* Typography Classes */
+.headline-gradient {
+  background: linear-gradient(135deg, var(--color-gradient-start) 0%, var(--color-gradient-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: var(--font-headline);
+  line-height: 0.85;
+}
+
+.descriptor-text {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: var(--color-descriptor-text);
+  text-transform: uppercase;
+}
+
+.name-text {
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 40px;
+  letter-spacing: 4px;
+  color: var(--color-primary-text);
+}
+
+.body-text {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-primary-text);
+  max-width: var(--text-max-width);
+}
+
+/* Button Styles */
+.glass-button {
+  position: relative;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, var(--color-button-gradient-start) 0%, var(--color-button-gradient-end) 100%);
+  color: var(--color-primary-text);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 220px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.3);
+  backdrop-filter: blur(6px);
+  overflow: hidden;
+  transition: all 0.3s var(--ease-smooth);
+}
+
+.glass-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.4);
+}
+
+/* Section Styles */
+.unified-section {
+  padding: var(--section-padding) 0;
+  background-color: var(--color-background);
+}
+
+.unified-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Animation Classes */
+.entrance-animation {
+  animation: fadeInUp 0.5s var(--ease-smooth) forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero specific styles */
+.hero-headline {
+  font-family: 'League Gothic Condensed', sans-serif;
+  background: linear-gradient(135deg, #C7D0D3 0%, #6D7284 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 0.9;
+}
+
+.hero-descriptor {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: #848DAB;
+}
+
+.hero-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200 !important;
+  font-size: 40px;
+  letter-spacing: 10px;
+  color: #1A1B1D;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   :root {
-    /* Light Mode Colors */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 20%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 20%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 20%;
-    --primary: 0 0% 20%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 97%;
-    --secondary-foreground: 0 0% 20%;
-    --muted: 0 0% 97%;
-    --muted-foreground: 0 0% 45%;
-    --accent: 0 0% 97%;
-    --accent-foreground: 0 0% 20%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 0% 20%;
-    --radius: 0.5rem;
-    
-    /* Brand Colors - Green and Muted Blue-Violet */
-    --lime: 120 100% 50%;
-    --muted-blue: 240 30% 60%;
-    --muted-violet: 270 30% 70%;
-  }
-
-  .dark {
-    /* Dark Mode Colors */
-    --background: 0 0% 12%;
-    --foreground: 0 0% 92%;
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 92%;
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 92%;
-    --primary: 0 0% 92%;
-    --primary-foreground: 0 0% 12%;
-    --secondary: 0 0% 17%;
-    --secondary-foreground: 0 0% 92%;
-    --muted: 0 0% 17%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 0 0% 17%;
-    --accent-foreground: 0 0% 92%;
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 0 0% 92%;
-    --border: 0 0% 17%;
-    --input: 0 0% 17%;
-    --ring: 0 0% 83%;
-    
-    /* Brand Colors - Green and Muted Blue-Violet */
-    --lime: 120 100% 50%;
-    --muted-blue: 240 30% 60%;
-    --muted-violet: 270 30% 70%;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-    font-family: 'Poppins', sans-serif;
-  }
-}
-
-
-
-@layer components {
-  .gradient-text {
-    @apply bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent;
+    --section-padding: 3rem;
   }
   
-  .section-light {
-    @apply bg-gray-50 text-gray-900;
+  .name-text {
+    font-size: 32px;
+    letter-spacing: 3px;
   }
   
-  .section-dark {
-    @apply bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white;
-  }
-
-  /* Hero specific styles */
-  .hero-headline {
-    font-family: 'League Gothic Condensed', sans-serif;
-    background: linear-gradient(135deg, #C7D0D3 0%, #6D7284 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 0.9;
-  }
-
-  .hero-descriptor {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 13px;
-    letter-spacing: 4px;
-    color: #848DAB;
-  }
-
-  .hero-name {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 200 !important;
-    font-size: 40px;
-    letter-spacing: 10px;
-    color: #1A1B1D;
-  }
-
-  .hero-paragraph {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 40px;
-    color: #1A1B1D;
-  }
-
-  .floating-animation {
-    animation: float 10s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-12px);
-    }
-  }
-
-  .parallax-container {
-    will-change: transform;
-  }
-
-  .svg-shadow {
-    filter: blur(50px);
-    opacity: 0.13;
+  .body-text {
+    font-size: 16px;
   }
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #E6B800, #FF6B35);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #d4a600, #e55a2b);
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
