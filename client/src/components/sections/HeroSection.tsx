@@ -594,6 +594,7 @@ const HeroSection = () => {
                     animate={{ 
                       clipPath: "inset(-20% 0 70% 0)",
                       y: -40,
+                      x: -15,
                     }}
                     exit={{ opacity: 0 }}
                     transition={{ 
@@ -602,15 +603,19 @@ const HeroSection = () => {
                       opacity: { delay: 0.5, duration: 0.3 }
                     }}
                     style={{
-                      filter: "blur(2px)"
+                      filter: "blur(0px) drop-shadow(8px 0px 12px rgba(0,0,0,0.3))"
                     }}
                   >
                     <motion.img
                       src={previousSlide === 2 ? grahamPortrait2 : grahamPortrait}
                       alt="Graham Ponsaran - Food Safety Expert"
                       className="w-full h-auto rounded-lg"
-                      style={{
-                        filter: "blur(1px)"
+                      animate={{
+                        filter: ["blur(0px)", "blur(2px) brightness(0.9)", "blur(4px) brightness(0.8)"]
+                      }}
+                      transition={{
+                        duration: 0.7,
+                        ease: [0.22, 0.61, 0.36, 1]
                       }}
                     />
                   </motion.div>
@@ -622,6 +627,7 @@ const HeroSection = () => {
                     animate={{ 
                       clipPath: "inset(70% 0 -20% 0)",
                       y: 40,
+                      x: 15,
                     }}
                     exit={{ opacity: 0 }}
                     transition={{ 
@@ -630,65 +636,126 @@ const HeroSection = () => {
                       opacity: { delay: 0.5, duration: 0.3 }
                     }}
                     style={{
-                      filter: "blur(2px)"
+                      filter: "blur(0px) drop-shadow(-8px 0px 12px rgba(0,0,0,0.3))"
                     }}
                   >
                     <motion.img
                       src={previousSlide === 2 ? grahamPortrait2 : grahamPortrait}
                       alt="Graham Ponsaran - Food Safety Expert"
                       className="w-full h-auto rounded-lg"
-                      style={{
-                        filter: "blur(1px)"
+                      animate={{
+                        filter: ["blur(0px)", "blur(2px) brightness(0.9)", "blur(4px) brightness(0.8)"]
+                      }}
+                      transition={{
+                        duration: 0.7,
+                        ease: [0.22, 0.61, 0.36, 1]
                       }}
                     />
                   </motion.div>
                   
-                  {/* Motion blur layers for enhanced effect */}
+                  {/* Horizontal Motion Blur Trails for Enhanced Effect */}
                   <motion.div
-                    className="absolute inset-0 overflow-hidden opacity-30"
+                    className="absolute inset-0 overflow-hidden opacity-40"
                     initial={{ clipPath: "inset(0 0 50% 0)" }}
                     animate={{ 
                       clipPath: "inset(-30% 0 80% 0)",
                       y: -60,
+                      x: -25,
                     }}
                     exit={{ opacity: 0 }}
                     transition={{ 
                       duration: 0.8, 
                       ease: [0.22, 0.61, 0.36, 1],
-                      opacity: { delay: 0.4, duration: 0.4 }
-                    }}
-                    style={{
-                      filter: "blur(8px)"
+                      opacity: { delay: 0.3, duration: 0.5 }
                     }}
                   >
                     <motion.img
                       src={previousSlide === 2 ? grahamPortrait2 : grahamPortrait}
                       alt=""
                       className="w-full h-auto rounded-lg"
+                      style={{
+                        filter: "blur(6px) brightness(0.7)",
+                        transform: "scaleX(1.1)"
+                      }}
                     />
                   </motion.div>
                   
                   <motion.div
-                    className="absolute inset-0 overflow-hidden opacity-30"
+                    className="absolute inset-0 overflow-hidden opacity-40"
                     initial={{ clipPath: "inset(50% 0 0 0)" }}
                     animate={{ 
                       clipPath: "inset(80% 0 -30% 0)",
                       y: 60,
+                      x: 25,
                     }}
                     exit={{ opacity: 0 }}
                     transition={{ 
                       duration: 0.8, 
                       ease: [0.22, 0.61, 0.36, 1],
-                      opacity: { delay: 0.4, duration: 0.4 }
-                    }}
-                    style={{
-                      filter: "blur(8px)"
+                      opacity: { delay: 0.3, duration: 0.5 }
                     }}
                   >
                     <motion.img
                       src={previousSlide === 2 ? grahamPortrait2 : grahamPortrait}
                       alt=""
                       className="w-full h-auto rounded-lg"
+                      style={{
+                        filter: "blur(6px) brightness(0.7)",
+                        transform: "scaleX(1.1)"
+                      }}
+                    />
+                  </motion.div>
+                  
+                  {/* Additional horizontal blur streaks */}
+                  <motion.div
+                    className="absolute inset-0 overflow-hidden opacity-25"
+                    initial={{ clipPath: "inset(0 0 50% 0)" }}
+                    animate={{ 
+                      clipPath: "inset(-40% 0 90% 0)",
+                      y: -80,
+                      x: -40,
+                    }}
+                    exit={{ opacity: 0 }}
+                    transition={{ 
+                      duration: 0.9, 
+                      ease: [0.22, 0.61, 0.36, 1],
+                      opacity: { delay: 0.2, duration: 0.6 }
+                    }}
+                  >
+                    <motion.img
+                      src={previousSlide === 2 ? grahamPortrait2 : grahamPortrait}
+                      alt=""
+                      className="w-full h-auto rounded-lg"
+                      style={{
+                        filter: "blur(12px) brightness(0.5)",
+                        transform: "scaleX(1.3)"
+                      }}
+                    />
+                  </motion.div>
+                  
+                  <motion.div
+                    className="absolute inset-0 overflow-hidden opacity-25"
+                    initial={{ clipPath: "inset(50% 0 0 0)" }}
+                    animate={{ 
+                      clipPath: "inset(90% 0 -40% 0)",
+                      y: 80,
+                      x: 40,
+                    }}
+                    exit={{ opacity: 0 }}
+                    transition={{ 
+                      duration: 0.9, 
+                      ease: [0.22, 0.61, 0.36, 1],
+                      opacity: { delay: 0.2, duration: 0.6 }
+                    }}
+                  >
+                    <motion.img
+                      src={previousSlide === 2 ? grahamPortrait2 : grahamPortrait}
+                      alt=""
+                      className="w-full h-auto rounded-lg"
+                      style={{
+                        filter: "blur(12px) brightness(0.5)",
+                        transform: "scaleX(1.3)"
+                      }}
                     />
                   </motion.div>
                 </div>
