@@ -1,0 +1,43 @@
+[05:54:58.397] Running build in Washington, D.C., USA (East) – iad1
+[05:54:58.397] Build machine configuration: 2 cores, 8 GB
+[05:54:58.419] Cloning github.com/Ridge-Bulaquena/GrahamTheFoodSafetyExpert (Branch: main, Commit: 63974f2)
+[05:54:58.426] Skipping build cache, deployment was triggered without cache.
+[05:54:58.739] Cloning completed: 320.000ms
+[05:54:58.764] Found .vercelignore
+[05:54:58.767] Removed 13 ignored files defined in .vercelignore
+[05:54:58.767]   /.replit
+[05:54:58.767]   /client/src/hooks/useAnimatedCounter.ts
+[05:54:58.767]   /client/src/hooks/useTypewriter.ts
+[05:54:58.767]   /client/src/lib/utils.ts
+[05:54:58.767]   /client/src/vite-env.d.ts
+[05:54:58.767]   /drizzle.config.ts
+[05:54:58.768]   /server/index.ts
+[05:54:58.768]   /server/routes.ts
+[05:54:58.768]   /server/storage.ts
+[05:54:58.768]   /server/vite.ts
+[05:55:00.834] Running "vercel build"
+[05:55:01.604] Vercel CLI 44.6.4
+[05:55:02.201] Installing dependencies...
+[05:55:07.592] npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+[05:55:07.625] npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+[05:55:12.461] 
+[05:55:12.461] added 482 packages in 10s
+[05:55:12.461] 
+[05:55:12.461] 64 packages are looking for funding
+[05:55:12.462]   run `npm fund` for details
+[05:55:12.523] Running "npm run build"
+[05:55:12.633] 
+[05:55:12.634] > rest-express@1.0.0 build
+[05:55:12.634] > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+[05:55:12.635] 
+[05:55:12.874] [36mvite v5.4.14 [32mbuilding for production...[36m[39m
+[05:55:12.908] [32m✓[39m 0 modules transformed.
+[05:55:12.910] [31mx[39m Build failed in 10ms
+[05:55:12.910] [31merror during build:
+[05:55:12.911] [31mCould not resolve entry module "index.html".[31m
+[05:55:12.911]     at getRollupError (file:///vercel/path0/node_modules/rollup/dist/es/shared/parseAst.js:396:41)
+[05:55:12.911]     at error (file:///vercel/path0/node_modules/rollup/dist/es/shared/parseAst.js:392:42)
+[05:55:12.911]     at ModuleLoader.loadEntryModule (file:///vercel/path0/node_modules/rollup/dist/es/shared/node-entry.js:20086:20)
+[05:55:12.911]     at async Promise.all (index 0)[39m
+[05:55:12.925] Error: Command "npm run build" exited with 1
+[05:55:16.544] Exiting build container
