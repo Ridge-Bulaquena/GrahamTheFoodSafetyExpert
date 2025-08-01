@@ -350,7 +350,7 @@ const HeroSection = () => {
                   </motion.div>
                 </motion.div>
               ) : (
-                // Slide 3 Content - Food Safety Training Services
+                // Slide 3 Content - Food Safety Training Services with word-by-word animation
                 <motion.div
                   key="slide3"
                   custom={-1}
@@ -398,65 +398,58 @@ const HeroSection = () => {
                     GRAHAM PONSARAN
                   </motion.h2>
 
-                  {/* Main Headline - Reduced by 10px as requested */}
+                  {/* Main Headline - Word by word animation */}
                   <motion.h1 
                     className="text-5xl md:text-7xl lg:text-8xl xl:text-[100px] 2xl:text-[140px] 3xl:text-[160px] 4xl:text-[180px] font-normal mb-5 md:mb-6 leading-[0.85]"
                     style={{ fontFamily: 'League Gothic Condensed, sans-serif' }}
                   >
-                    {/* First Line */}
-                    <motion.div
-                      className="text-transparent bg-clip-text bg-gradient-to-br from-[#C7D0D3] to-[#6D7284]"
-                      initial={{ opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
-                      animate={{ opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" }}
-                      transition={{ 
-                        duration: 0.5, 
-                        delay: 0.4,
-                        ease: [0.22, 0.61, 0.36, 1]
-                      }}
-                    >
-                      FOOD SAFETY TRAINING
-                    </motion.div>
-                    
-                    {/* Second Line */}
-                    <motion.div
-                      className="text-transparent bg-clip-text bg-gradient-to-br from-[#C7D0D3] to-[#6D7284]"
-                      initial={{ opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
-                      animate={{ opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" }}
-                      transition={{ 
-                        duration: 0.5, 
-                        delay: 0.55,
-                        ease: [0.22, 0.61, 0.36, 1]
-                      }}
-                    >
-                      SERVICES
-                    </motion.div>
+                    <div className="flex flex-wrap items-center gap-2 lg:gap-3">
+                      {["FOOD", "SAFETY", "TRAINING", "SERVICES"].map((word, index) => (
+                        <motion.span
+                          key={word}
+                          className="text-transparent bg-clip-text bg-gradient-to-br from-[#C7D0D3] to-[#6D7284]"
+                          initial={{ opacity: 0, y: 20, scale: 0.98 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          transition={{ 
+                            duration: 0.6, 
+                            delay: 0.4 + (index * 0.05),
+                            ease: [0.22, 0.61, 0.36, 1]
+                          }}
+                        >
+                          {word}
+                        </motion.span>
+                      ))}
+                    </div>
                   </motion.h1>
 
-                  {/* Supporting Text */}
-                  <motion.p 
+                  {/* Supporting Text - Word by word animation */}
+                  <motion.div 
                     className="text-lg md:text-xl text-[#1A1B1D] max-w-[650px] lg:max-w-[700px] leading-relaxed mt-4 md:mt-6"
                     style={{ fontFamily: 'Poppins, sans-serif' }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ 
-                      duration: 0.5, 
-                      delay: 0.75,
-                      ease: [0.22, 0.61, 0.36, 1]
-                    }}
                   >
-                    With constant and sometimes confusing changes in regulations and certification standards, keeping your team trained is more critical than ever. Graham understands today's business challenges and offers practical food safety training tailored to all levels—from production-floor staff to senior management.
-                  </motion.p>
+                    <div className="flex flex-wrap gap-1">
+                      {[
+                        "With", "constant", "and", "sometimes", "confusing", "changes", "in", "regulations", "and", "certification", "standards,", "keeping", "your", "team", "trained", "is", "more", "critical", "than", "ever.", "Graham", "understands", "today's", "business", "challenges", "and", "offers", "practical", "food", "safety", "training", "tailored", "to", "all", "levels—from", "production-floor", "staff", "to", "senior", "management."
+                      ].map((word, index) => (
+                        <motion.span
+                          key={`${word}-${index}`}
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ 
+                            duration: 0.4, 
+                            delay: 0.6 + (index * 0.05),
+                            ease: [0.22, 0.61, 0.36, 1]
+                          }}
+                        >
+                          {word}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </motion.div>
 
-                  {/* Action Buttons */}
+                  {/* Action Buttons - Staggered appearance */}
                   <motion.div 
                     className="flex flex-col sm:flex-row gap-4 mt-8 md:mt-10"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ 
-                      duration: 0.4, 
-                      delay: 0.95,
-                      ease: [0.22, 0.61, 0.36, 1]
-                    }}
                   >
                     {/* First Button */}
                     <motion.button
@@ -466,11 +459,11 @@ const HeroSection = () => {
                         fontSize: '11px',
                         letterSpacing: '1px'
                       }}
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
+                      initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
                       transition={{ 
-                        duration: 0.4, 
-                        delay: 0.95,
+                        duration: 0.5, 
+                        delay: 2.6,
                         ease: [0.22, 0.61, 0.36, 1]
                       }}
                       whileHover={{ 
@@ -492,11 +485,11 @@ const HeroSection = () => {
                         fontSize: '11px',
                         letterSpacing: '1px'
                       }}
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
+                      initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
                       transition={{ 
-                        duration: 0.4, 
-                        delay: 1.05,
+                        duration: 0.5, 
+                        delay: 2.7,
                         ease: [0.22, 0.61, 0.36, 1]
                       }}
                       whileHover={{ 
