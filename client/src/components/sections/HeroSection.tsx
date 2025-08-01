@@ -531,47 +531,84 @@ const HeroSection = () => {
               animate={{ 
                 opacity: 1, 
                 scale: 1,
-                y: prefersReducedMotion ? 0 : [0, -12, 0],
+                y: prefersReducedMotion ? 0 : [0, -20, 0],
               }}
               transition={{ 
                 opacity: { duration: 0.8, delay: currentSlide === 1 ? 0.6 : 0.6, ease: [0.22, 0.61, 0.36, 1] },
                 scale: { duration: 0.8, delay: currentSlide === 1 ? 0.6 : 0.6, ease: [0.22, 0.61, 0.36, 1] },
                 y: prefersReducedMotion ? {} : {
-                  duration: 10,
+                  duration: 6,
                   repeat: Infinity,
                   ease: "easeInOut"
                 }
               }}
+              whileHover={prefersReducedMotion ? {} : {
+                scale: 1.05,
+                y: -8,
+                transition: { duration: 0.3, ease: [0.22, 0.61, 0.36, 1] }
+              }}
             >
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={`portrait-${currentSlide}`}
-                  src={currentSlide === 2 ? grahamPortrait2 : grahamPortrait}
-                  alt="Graham Ponsaran - Food Safety Expert"
-                  className="w-full h-auto rounded-lg"
-                  initial={{ 
-                    opacity: 0, 
-                    scale: prefersReducedMotion ? 1 : 1.2, 
-                    x: prefersReducedMotion ? 0 : 100 
-                  }}
-                  animate={{ 
-                    opacity: 1, 
-                    scale: 1, 
-                    x: 0 
-                  }}
-                  exit={{ 
-                    opacity: 0, 
-                    scale: prefersReducedMotion ? 1 : 0.9, 
-                    x: prefersReducedMotion ? 0 : -50,
-                    transition: { duration: 0.3, ease: [0.22, 0.61, 0.36, 1] }
-                  }}
-                  transition={{ 
-                    duration: prefersReducedMotion ? 0.3 : 0.8, 
-                    ease: [0.22, 0.61, 0.36, 1],
-                    delay: 0.1
-                  }}
-                />
-              </AnimatePresence>
+              <div className="relative">
+                {/* Shine overlay animation */}
+                {!prefersReducedMotion && (
+                  <motion.div
+                    className="absolute inset-0 rounded-lg overflow-hidden pointer-events-none"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1, duration: 0.5 }}
+                  >
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12"
+                      initial={{ x: "-100%" }}
+                      animate={{ x: "100%" }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        repeatDelay: 4,
+                        ease: "easeInOut"
+                      }}
+                      style={{
+                        width: "120%",
+                        height: "100%"
+                      }}
+                    />
+                  </motion.div>
+                )}
+                
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={`portrait-${currentSlide}`}
+                    src={currentSlide === 2 ? grahamPortrait2 : grahamPortrait}
+                    alt="Graham Ponsaran - Food Safety Expert"
+                    className="w-full h-auto rounded-lg cursor-pointer"
+                    initial={{ 
+                      opacity: 0, 
+                      scale: prefersReducedMotion ? 1 : 1.2, 
+                      x: prefersReducedMotion ? 0 : 100 
+                    }}
+                    animate={{ 
+                      opacity: 1, 
+                      scale: 1, 
+                      x: 0 
+                    }}
+                    exit={{ 
+                      opacity: 0, 
+                      scale: prefersReducedMotion ? 1 : 0.9, 
+                      x: prefersReducedMotion ? 0 : -50,
+                      transition: { duration: 0.3, ease: [0.22, 0.61, 0.36, 1] }
+                    }}
+                    transition={{ 
+                      duration: prefersReducedMotion ? 0.3 : 0.8, 
+                      ease: [0.22, 0.61, 0.36, 1],
+                      delay: 0.1
+                    }}
+                    whileHover={prefersReducedMotion ? {} : {
+                      scale: 1.02,
+                      transition: { duration: 0.2, ease: [0.22, 0.61, 0.36, 1] }
+                    }}
+                  />
+                </AnimatePresence>
+              </div>
             </motion.div>
           </motion.div>
         </div>
