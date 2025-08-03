@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import grahamPortrait from '@/assets/graham-portrait.png';
+import grahamPortrait2 from '@/assets/graham-portrait-2.png';
+import grahamPortrait3 from '@/assets/graham-portrait-3.png';
 
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -25,45 +27,89 @@ const HeroSection = () => {
       setTimeout(() => {
         setCurrentSlide(prev => prev === 3 ? 1 : prev + 1);
         setIsTransitioning(false);
-      }, 300); // Transition duration
+      }, 500); // Increased transition duration for smoother exit
     }, 8000); // 8 seconds total: 3 seconds for animations + 5 seconds pause
 
     return () => clearInterval(interval);
   }, []);
 
-  // Transition variants for motion blur effect
+  // Enhanced transition variants for smooth exit animations
   const slideVariants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 1000 : -1000,
       opacity: 0,
       filter: prefersReducedMotion ? 'none' : 'blur(0px)',
+      scale: 0.95,
     }),
     center: {
       x: 0,
       opacity: 1,
       filter: prefersReducedMotion ? 'none' : 'blur(0px)',
+      scale: 1,
     },
     exit: (direction: number) => ({
       x: direction < 0 ? 1000 : -1000,
       opacity: 0,
       filter: prefersReducedMotion ? 'none' : 'blur(8px)',
+      scale: 0.95,
     }),
   };
 
+  // Enhanced transition with smoother animations
   const transition = {
     x: { 
       type: "spring" as const, 
       stiffness: 300, 
       damping: 30,
-      duration: prefersReducedMotion ? 0.3 : 0.6
+      duration: prefersReducedMotion ? 0.3 : 0.8
     },
     opacity: { 
-      duration: prefersReducedMotion ? 0.3 : 0.4,
+      duration: prefersReducedMotion ? 0.3 : 0.6,
       ease: [0.22, 0.61, 0.36, 1] as const
     },
     filter: { 
-      duration: prefersReducedMotion ? 0 : 0.3,
+      duration: prefersReducedMotion ? 0 : 0.4,
       ease: [0.22, 0.61, 0.36, 1] as const
+    },
+    scale: {
+      duration: prefersReducedMotion ? 0.3 : 0.6,
+      ease: [0.22, 0.61, 0.36, 1] as const
+    }
+  };
+
+  // Floating animation for portrait
+  const floatingAnimation = {
+    y: [0, -15, 0],
+    transition: {
+      duration: 6,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  };
+
+  // Zoom-in from right animation
+  const zoomInFromRight = {
+    initial: { 
+      opacity: 0, 
+      scale: 0.8, 
+      x: 100,
+      rotateY: 15
+    },
+    animate: { 
+      opacity: 1, 
+      scale: 1, 
+      x: 0,
+      rotateY: 0
+    },
+    exit: { 
+      opacity: 0, 
+      scale: 0.8, 
+      x: -100,
+      rotateY: -15
+    },
+    transition: {
+      duration: 0.8,
+      ease: "easeOut"
     }
   };
 
@@ -189,7 +235,7 @@ const HeroSection = () => {
                 </motion.div>
 
               ) : currentSlide === 2 ? (
-                // Slide 2 Content (keep existing)
+                // Slide 2 Content - Enhanced with sequential animations
                 <motion.div
                   key="slide2"
                   custom={-1}
@@ -516,45 +562,122 @@ const HeroSection = () => {
             </AnimatePresence>
           </motion.div>
 
-          {/* Right Column - Portrait Image */}
+          {/* Right Column - Portrait Images */}
           <motion.div 
             className="flex-1 flex justify-center items-center relative"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            {/* Portrait Image */}
-            <motion.div
-              ref={portraitRef}
-              className="relative z-0"
-              style={{
-                y: prefersReducedMotion ? 0 : y,
-              }}
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ 
-                opacity: 1, 
-                scale: 1,
-                y: prefersReducedMotion ? 0 : [0, -12, 0],
-              }}
-              transition={{ 
-                opacity: { duration: 0.8, delay: currentSlide === 1 ? 0.6 : 0.6, ease: [0.22, 0.61, 0.36, 1] },
-                scale: { duration: 0.8, delay: currentSlide === 1 ? 0.6 : 0.6, ease: [0.22, 0.61, 0.36, 1] },
-                y: prefersReducedMotion ? {} : {
-                  duration: 10,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }
-              }}
-            >
-              <motion.img
-                src={grahamPortrait}
-                alt="Graham Ponsaran - Food Safety Expert"
-                className="w-80 h-auto md:w-96 lg:w-[550px] xl:w-[650px] max-w-full rounded-lg"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, delay: 0.5 }}
-              />
-            </motion.div>
+            {/* Portrait Images with AnimatePresence */}
+            <AnimatePresence mode="wait">
+              {currentSlide === 1 ? (
+                // First Portrait
+                <motion.div
+                  key="portrait1"
+                  ref={portraitRef}
+                  className="relative z-0"
+                  style={{
+                    y: prefersReducedMotion ? 0 : y,
+                  }}
+                  initial={{ opacity: 0, scale: 0.8, x: 100 }}
+                  animate={{ 
+                    opacity: 1, 
+                    scale: 1, 
+                    x: 0,
+                    y: prefersReducedMotion ? 0 : [0, -15, 0]
+                  }}
+                  exit={{ opacity: 0, scale: 0.8, x: -100 }}
+                  transition={{ 
+                    duration: 0.8,
+                    y: prefersReducedMotion ? {} : {
+                      duration: 6,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }
+                  }}
+                >
+                  <motion.img
+                    src={grahamPortrait}
+                    alt="Graham Ponsaran - Food Safety Expert"
+                    className="w-80 h-auto md:w-96 lg:w-[550px] xl:w-[650px] max-w-full rounded-lg"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, delay: 0.5 }}
+                  />
+                </motion.div>
+              ) : currentSlide === 2 ? (
+                // Second Portrait
+                <motion.div
+                  key="portrait2"
+                  ref={portraitRef}
+                  className="relative z-0"
+                  style={{
+                    y: prefersReducedMotion ? 0 : y,
+                  }}
+                  initial={{ opacity: 0, scale: 0.8, x: 100 }}
+                  animate={{ 
+                    opacity: 1, 
+                    scale: 1, 
+                    x: 0,
+                    y: prefersReducedMotion ? 0 : [0, -15, 0]
+                  }}
+                  exit={{ opacity: 0, scale: 0.8, x: -100 }}
+                  transition={{ 
+                    duration: 0.8,
+                    y: prefersReducedMotion ? {} : {
+                      duration: 6,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }
+                  }}
+                >
+                  <motion.img
+                    src={grahamPortrait2}
+                    alt="Graham Ponsaran - Food Safety Expert"
+                    className="w-80 h-auto md:w-96 lg:w-[550px] xl:w-[650px] max-w-full rounded-lg"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, delay: 0.5 }}
+                  />
+                </motion.div>
+              ) : (
+                // Third Portrait
+                <motion.div
+                  key="portrait3"
+                  ref={portraitRef}
+                  className="relative z-0"
+                  style={{
+                    y: prefersReducedMotion ? 0 : y,
+                  }}
+                  initial={{ opacity: 0, scale: 0.8, x: 100 }}
+                  animate={{ 
+                    opacity: 1, 
+                    scale: 1, 
+                    x: 0,
+                    y: prefersReducedMotion ? 0 : [0, -15, 0]
+                  }}
+                  exit={{ opacity: 0, scale: 0.8, x: -100 }}
+                  transition={{ 
+                    duration: 0.8,
+                    y: prefersReducedMotion ? {} : {
+                      duration: 6,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }
+                  }}
+                >
+                  <motion.img
+                    src={grahamPortrait3}
+                    alt="Graham Ponsaran - Food Safety Expert"
+                    className="w-80 h-auto md:w-96 lg:w-[550px] xl:w-[650px] max-w-full rounded-lg"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, delay: 0.5 }}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         </div>
       </div>
