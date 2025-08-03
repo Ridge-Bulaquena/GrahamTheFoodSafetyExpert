@@ -60,30 +60,31 @@
             width: 100%;
             border-radius: 8px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
+            padding: 1rem 1rem 2rem 1rem;
             z-index: 0;
             opacity: 0;
             transition: all 0.5s ease-in-out;
             pointer-events: none;
             border: 1px solid #d1d5db;
-            min-height: 200px;
         }
 
         .top-panel {
             bottom: 30px;
             transform: translateX(-50%) translateY(16px);
             background: linear-gradient(to top right, #c1c8d1, #fefffb);
-            padding-bottom: 4rem;
+            padding-bottom: 5rem;
             border-radius: 20px 20px 0 0;
+            min-height: 280px;
         }
 
         .bottom-panel {
             top: 30px;
             transform: translateX(-50%) translateY(-16px);
             background: linear-gradient(to bottom right, #a9b1bd, #dbe4e3);
-            padding-top: 4rem;
+            padding-top: 5rem;
             padding-bottom: 2.5rem;
             border-radius: 0 0 20px 20px;
+            min-height: 200px;
         }
 
         .hover-wrapper:hover .top-panel {
@@ -113,9 +114,9 @@
         }
 
         .image-placeholder {
-            background-color: rgba(255, 255, 255, 0.5);
+            background: linear-gradient(to top right, #c1c8d1, #fefffb);
             border-radius: 6px;
-            height: 160px;
+            height: 192px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -123,8 +124,8 @@
         }
 
         .placeholder-image {
-            width: 80px;
-            height: 80px;
+            width: 96px;
+            height: 96px;
             object-fit: contain;
         }
 
@@ -137,19 +138,18 @@
 
         .cta-button {
             display: inline-block;
-            background: linear-gradient(to bottom right, white, #f3f4f6);
-            color: #374151;
-            padding: 16px 32px;
-            border-radius: 220px;
+            background-color: #708d81;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 0.875rem;
             font-weight: 500;
             transition: all 0.2s ease;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .cta-button:hover {
-            background: linear-gradient(to bottom right, #f9fafb, #e5e7eb);
+            background-color: #5a7267;
         }
 
         .button-container {
