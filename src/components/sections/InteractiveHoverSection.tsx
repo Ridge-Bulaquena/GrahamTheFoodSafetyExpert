@@ -7,7 +7,7 @@ const InteractiveHoverComponent: React.FC = () => {
       {/* Hover card container */}
       <div className="relative w-full">
         {/* Top panel - slides down from above icon */}
-        <div className="absolute bottom-[50%] left-1/2 transform -translate-x-1/2 w-full h-[10%] opacity-0 translate-y-4 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:h-[280px] bg-gradient-to-tr from-[#c1c8d1] to-[#fefffb] rounded-tl-[20px] rounded-tr-[20px] border border-gray-300 shadow-lg px-8 py-8 pb-8 z-0">
+        <div className="absolute bottom-[50%] left-1/2 transform -translate-x-1/2 w-4/5 h-[10%] opacity-0 translate-y-4 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:h-[280px] bg-gradient-to-tr from-[#c1c8d1] to-[#fefffb] rounded-tl-[20px] rounded-tr-[20px] border border-gray-300 shadow-lg px-8 py-8 pb-8 z-0">
           <div className="bg-gradient-to-tr from-[#c1c8d1] to-[#fefffb] rounded-md h-48 mb-4 flex items-center justify-center">
             <img 
               src={dividerIcon} 
@@ -27,7 +27,7 @@ const InteractiveHoverComponent: React.FC = () => {
         </div>
 
         {/* Bottom panel - slides up from below icon */}
-        <div className="absolute top-[50%] left-1/2 transform -translate-x-1/2 w-full h-[10%] opacity-0 -translate-y-4 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:h-[200px] bg-gradient-to-br from-[#a9b1bd] to-[#dbe4e3] rounded-bl-[20px] rounded-br-[20px] border border-gray-300 shadow-lg px-8 py-8 pt-8 pb-10 z-0">
+        <div className="absolute top-[50%] left-1/2 transform -translate-x-1/2 w-4/5 h-[10%] opacity-0 -translate-y-4 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:h-[200px] bg-gradient-to-br from-[#a9b1bd] to-[#dbe4e3] rounded-bl-[20px] rounded-br-[20px] border border-gray-300 shadow-lg px-8 py-8 pt-12 pb-10 z-0">
           <div className="text-center">
             <p className="text-gray-700 text-base mb-4 leading-relaxed text-left font-['Poppins'] font-normal">
               Discover our comprehensive food safety solutions and expert guidance for your business.
