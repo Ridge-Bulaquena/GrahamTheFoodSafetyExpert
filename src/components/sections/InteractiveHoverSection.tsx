@@ -7,7 +7,7 @@ const InteractiveHoverComponent: React.FC = () => {
       {/* Hover card container */}
       <div className="relative w-full">
         {/* Top panel - slides down from above icon */}
-        <div className="absolute bottom-[50%] left-1/2 transform -translate-x-1/2 w-[90%] h-[10%] opacity-0 translate-y-4 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:h-[320px] bg-gradient-to-tr from-[#c1c8d1] to-[#fefffb] rounded-tl-[20px] rounded-tr-[20px] border border-gray-300 shadow-lg px-8 py-8 pb-4 z-0">
+        <div className="absolute bottom-[50%] left-1/2 transform -translate-x-1/2 w-[90%] h-[10%] opacity-0 translate-y-4 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:h-[320px] bg-gradient-to-tr from-[#c1c8d1] to-[#fefffb] rounded-tl-[20px] rounded-tr-[20px] border border-gray-300 shadow-lg px-8 py-8 pb-2 z-0">
           <div className="bg-gradient-to-tr from-[#c1c8d1] to-[#fefffb] rounded-md h-48 mb-4 flex items-center justify-center">
             <img 
               src={dividerIcon} 
@@ -35,14 +35,33 @@ const InteractiveHoverComponent: React.FC = () => {
             <div className="flex justify-center">
               <a 
                 href="#" 
-                className="inline-block bg-gradient-to-br from-white to-gray-100 text-gray-700 px-6 py-3 rounded-[220px] text-sm shadow-[0_1px_2px_rgba(0,0,0,0.1)] hover:from-gray-50 hover:to-gray-200 transition-all duration-200 font-medium font-['Poppins']"
+                className="inline-block bg-gradient-to-br from-white to-gray-100 text-gray-700 px-6 py-3 rounded-[220px] text-sm shadow-[0_1px_2px_rgba(0,0,0,0.1)] hover:from-gray-50 hover:to-gray-200 transition-all duration-200 font-medium font-['Poppins'] relative overflow-hidden"
+                style={{
+                  background: 'linear-gradient(to bottom right, white, #f3f4f6)',
+                }}
               >
-                Learn More
+                <span className="relative z-10">Learn More</span>
+                <div 
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
+                  style={{
+                    animation: 'shine 4s infinite',
+                    transform: 'translateX(-100%)',
+                  }}
+                />
               </a>
             </div>
           </div>
         </div>
       </div>
+      
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+          }
+        `
+      }} />
     </div>
   );
 };
