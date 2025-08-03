@@ -6,8 +6,8 @@ const InteractiveHoverComponent: React.FC = () => {
     <div className="relative group w-full">
       {/* Wrapper div containing the icon and panels */}
       <div className="relative flex flex-col items-center w-full">
-        {/* Top panel - slides up on hover */}
-        <div className="absolute bottom-full mb-4 opacity-0 transform translate-y-4 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 bg-white rounded-lg shadow-lg p-4 w-full z-10">
+        {/* Top panel - slides up from icon line */}
+        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-0 opacity-0 translate-y-0 transition-all duration-700 ease-out group-hover:opacity-100 group-hover:-translate-y-4 bg-white rounded-lg shadow-lg p-4 w-full z-10">
           <div className="bg-gray-200 rounded-md h-32 mb-3 flex items-center justify-center">
             <img 
               src={dividerIcon} 
@@ -17,17 +17,17 @@ const InteractiveHoverComponent: React.FC = () => {
           </div>
         </div>
 
-        {/* Center icon - using PNG directly */}
+        {/* Center icon - using PNG directly, full width */}
         <div className="relative z-20 w-full flex justify-center">
           <img 
             src={dividerIcon} 
             alt="Divider Icon" 
-            className="w-24 h-24 object-contain"
+            className="w-full h-24 object-contain"
           />
         </div>
 
-        {/* Bottom panel - slides down on hover */}
-        <div className="absolute top-full mt-4 opacity-0 transform -translate-y-4 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 bg-white rounded-lg shadow-lg p-4 w-full z-10">
+        {/* Bottom panel - slides down from icon line */}
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-0 opacity-0 translate-y-0 transition-all duration-700 ease-out group-hover:opacity-100 group-hover:translate-y-4 bg-white rounded-lg shadow-lg p-4 w-full z-10">
           <p className="text-gray-700 text-sm mb-3">
             Discover our comprehensive food safety solutions and expert guidance for your business.
           </p>
