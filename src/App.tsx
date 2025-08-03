@@ -1,5 +1,6 @@
 import React from 'react';
 import HeroSection from './components/sections/HeroSection';
+import InteractiveHoverSection from './components/sections/InteractiveHoverSection';
 import ProfitOpportunities from './components/sections/ProfitOpportunities';
 import WealthEngines from './components/sections/WealthEngines';
 import ProofAuthority from './components/sections/ProofAuthority';
@@ -11,6 +12,7 @@ function App() {
   return (
     <div className="min-h-screen bg-[#EAEEF4]">
       <HeroSection />
+      <InteractiveHoverSection />
       <ProfitOpportunities />
       <WealthEngines />
       <ProofAuthority />

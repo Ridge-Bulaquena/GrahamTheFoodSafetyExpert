@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Hover Component</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .three-column-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .column {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+        }
+
+        /* Interactive Hover Component Styles */
+        .hover-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hover-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .panel {
+            position: absolute;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            width: 256px;
+            z-index: 10;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: all 0.3s ease-in-out;
+            pointer-events: none;
+        }
+
+        .top-panel {
+            bottom: 100%;
+            margin-bottom: 1rem;
+            transform: translateY(-16px);
+        }
+
+        .bottom-panel {
+            top: 100%;
+            margin-top: 1rem;
+            transform: translateY(16px);
+        }
+
+        .hover-wrapper:hover .panel {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .icon-container {
+            position: relative;
+            z-index: 20;
+        }
+
+        .icon-circle {
+            width: 64px;
+            height: 64px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-image {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+
+        .line-separator {
+            position: absolute;
+            top: 50%;
+            width: 32px;
+            height: 2px;
+            background-color: #d1d5db;
+            transform: translateY(-50%);
+        }
+
+        .line-left {
+            left: 0;
+            transform: translateX(-100%) translateY(-50%);
+        }
+
+        .line-right {
+            right: 0;
+            transform: translateX(100%) translateY(-50%);
+        }
+
+        .image-placeholder {
+            background-color: #e5e7eb;
+            border-radius: 6px;
+            height: 128px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .description-text {
+            color: #374151;
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .panel {
+                width: 240px;
+            }
+            
+            .three-column-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="three-column-layout">
+            <!-- First Column - Interactive Hover Component -->
+            <div class="column">
+                <div class="hover-wrapper">
+                    <div class="hover-container">
+                        <!-- Top panel - slides up on hover -->
+                        <div class="panel top-panel">
+                            <div class="image-placeholder">
+                                <span style="color: #6b7280; font-size: 0.875rem;">Image Placeholder</span>
+                            </div>
+                        </div>
+
+                        <!-- Center icon with horizontal line separators -->
+                        <div class="icon-container">
+                            <div class="icon-circle">
+                                <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Divider Icon" class="icon-image">
+                            </div>
+                            <div class="line-separator line-left"></div>
+                            <div class="line-separator line-right"></div>
+                        </div>
+
+                        <!-- Bottom panel - slides down on hover -->
+                        <div class="panel bottom-panel">
+                            <p class="description-text">
+                                Discover our comprehensive food safety solutions and expert guidance for your business.
+                            </p>
+                            <a href="#" class="cta-button">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Column -->
+            <div class="column">
+                <div style="text-align: center;">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; color: #1f2937; margin-bottom: 1rem;">Column 2</h3>
+                    <p style="color: #6b7280;">Content for the second column goes here.</p>
+                </div>
+            </div>
+
+            <!-- Third Column -->
+            <div class="column">
+                <div style="text-align: center;">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; color: #1f2937; margin-bottom: 1rem;">Column 3</h3>
+                    <p style="color: #6b7280;">Content for the third column goes here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
