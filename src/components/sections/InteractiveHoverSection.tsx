@@ -7,12 +7,12 @@ const InteractiveHoverComponent: React.FC = () => {
       {/* Hover card container */}
       <div className="relative w-full">
         {/* Top panel - slides down from above icon */}
-        <div className="absolute bottom-[10px] left-1/2 transform -translate-x-1/2 w-full opacity-0 translate-y-4 transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 bg-gradient-to-tr from-[#c1c8d1] to-[#fefffb] rounded-tl-[20px] rounded-tr-[20px] border border-gray-300 shadow-lg p-4 pb-10 z-0">
-          <div className="bg-white/50 rounded-md h-32 mb-3 flex items-center justify-center">
+        <div className="absolute bottom-[30px] left-1/2 transform -translate-x-1/2 w-full opacity-0 translate-y-4 transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 bg-gradient-to-tr from-[#c1c8d1] to-[#fefffb] rounded-tl-[20px] rounded-tr-[20px] border border-gray-300 shadow-lg p-8 pb-16 z-0 min-h-[200px]">
+          <div className="bg-white/50 rounded-md h-40 mb-4 flex items-center justify-center">
             <img 
               src={dividerIcon} 
               alt="Placeholder" 
-              className="w-16 h-16 object-contain"
+              className="w-20 h-20 object-contain"
             />
           </div>
         </div>
@@ -27,14 +27,14 @@ const InteractiveHoverComponent: React.FC = () => {
         </div>
 
         {/* Bottom panel - slides up from below icon */}
-        <div className="absolute top-[10px] left-1/2 transform -translate-x-1/2 w-full opacity-0 -translate-y-4 transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 bg-gradient-to-br from-[#a9b1bd] to-[#dbe4e3] rounded-bl-[20px] rounded-br-[20px] border border-gray-300 shadow-lg p-4 pt-10 pb-10 z-0">
-          <p className="text-gray-700 text-sm mb-3">
+        <div className="absolute top-[30px] left-1/2 transform -translate-x-1/2 w-full opacity-0 -translate-y-4 transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 bg-gradient-to-br from-[#a9b1bd] to-[#dbe4e3] rounded-bl-[20px] rounded-br-[20px] border border-gray-300 shadow-lg p-8 pt-16 pb-10 z-0 min-h-[200px]">
+          <p className="text-gray-700 text-base mb-4 leading-relaxed">
             Discover our comprehensive food safety solutions and expert guidance for your business.
           </p>
           <div className="flex justify-center">
             <a 
               href="#" 
-              className="inline-block bg-gradient-to-br from-white to-gray-100 text-gray-700 px-6 py-3 rounded-[220px] text-sm shadow-[0_1px_2px_rgba(0,0,0,0.1)] hover:from-gray-50 hover:to-gray-200 transition-all duration-200 font-medium"
+              className="inline-block bg-gradient-to-br from-white to-gray-100 text-gray-700 px-8 py-4 rounded-[220px] text-base shadow-[0_1px_2px_rgba(0,0,0,0.1)] hover:from-gray-50 hover:to-gray-200 transition-all duration-200 font-medium"
             >
               Learn More
             </a>
