@@ -6,8 +6,8 @@ const InteractiveHoverComponent: React.FC = () => {
     <div className="relative group w-full">
       {/* Hover card container */}
       <div className="relative w-full">
-        {/* Top panel - expands upward on hover */}
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-4/5 opacity-0 translate-y-4 transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 bg-gradient-to-tr from-[#c1c8d1] to-[#fefffb] rounded-lg shadow-lg p-4 pb-16 z-0">
+        {/* Top panel - slides down from above icon */}
+        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 w-full opacity-0 translate-y-4 transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 bg-gradient-to-tr from-[#c1c8d1] to-[#fefffb] rounded-tl-[20px] rounded-tr-[20px] border border-gray-300 shadow-lg p-4 pb-16 z-0">
           <div className="bg-white/50 rounded-md h-32 mb-3 flex items-center justify-center">
             <img 
               src={dividerIcon} 
@@ -26,15 +26,15 @@ const InteractiveHoverComponent: React.FC = () => {
           />
         </div>
 
-        {/* Bottom panel - expands downward on hover */}
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 opacity-0 -translate-y-4 transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 bg-gradient-to-br from-[#a9b1bd] to-[#dbe4e3] rounded-lg shadow-lg p-4 pt-16 z-0">
+        {/* Bottom panel - slides up from below icon */}
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-full opacity-0 -translate-y-4 transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 bg-gradient-to-br from-[#a9b1bd] to-[#dbe4e3] rounded-bl-[20px] rounded-br-[20px] border border-gray-300 shadow-lg p-4 pt-16 z-0">
           <p className="text-gray-700 text-sm mb-3">
             Discover our comprehensive food safety solutions and expert guidance for your business.
           </p>
           <div className="flex justify-center">
             <a 
               href="#" 
-              className="inline-block bg-[#708d81] text-white px-5 py-2.5 rounded-lg text-sm hover:bg-[#5a7267] transition-colors duration-200"
+              className="inline-block bg-gradient-to-br from-white to-gray-100 text-gray-700 px-6 py-3 rounded-[220px] text-sm shadow-[0_1px_2px_rgba(0,0,0,0.1)] hover:from-gray-50 hover:to-gray-200 transition-all duration-200 font-medium"
             >
               Learn More
             </a>

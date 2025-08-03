@@ -57,7 +57,7 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 80%;
+            width: 100%;
             border-radius: 8px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             padding: 1rem;
@@ -65,20 +65,23 @@
             opacity: 0;
             transition: all 0.5s ease-in-out;
             pointer-events: none;
+            border: 1px solid #d1d5db;
         }
 
         .top-panel {
-            top: 0;
+            bottom: 100%;
             transform: translateX(-50%) translateY(16px);
             background: linear-gradient(to top right, #c1c8d1, #fefffb);
             padding-bottom: 4rem;
+            border-radius: 20px 20px 0 0;
         }
 
         .bottom-panel {
-            bottom: 0;
+            top: 100%;
             transform: translateX(-50%) translateY(-16px);
             background: linear-gradient(to bottom right, #a9b1bd, #dbe4e3);
             padding-top: 4rem;
+            border-radius: 0 0 20px 20px;
         }
 
         .hover-wrapper:hover .top-panel {
@@ -132,17 +135,19 @@
 
         .cta-button {
             display: inline-block;
-            background-color: #708d81;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
+            background: linear-gradient(to bottom right, white, #f3f4f6);
+            color: #374151;
+            padding: 12px 24px;
+            border-radius: 220px;
             text-decoration: none;
             font-size: 0.875rem;
-            transition: background-color 0.2s ease;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .cta-button:hover {
-            background-color: #5a7267;
+            background: linear-gradient(to bottom right, #f9fafb, #e5e7eb);
         }
 
         .button-container {
@@ -169,7 +174,7 @@
             <div class="column">
                 <div class="hover-wrapper">
                     <div class="hover-container">
-                        <!-- Top panel - expands upward on hover -->
+                        <!-- Top panel - slides down from above icon -->
                         <div class="panel top-panel">
                             <div class="image-placeholder">
                                 <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Placeholder" class="placeholder-image">
@@ -181,7 +186,7 @@
                             <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Divider Icon" class="icon-image">
                         </div>
 
-                        <!-- Bottom panel - expands downward on hover -->
+                        <!-- Bottom panel - slides up from below icon -->
                         <div class="panel bottom-panel">
                             <p class="description-text">
                                 Discover our comprehensive food safety solutions and expert guidance for your business.
@@ -198,7 +203,7 @@
             <div class="column">
                 <div class="hover-wrapper">
                     <div class="hover-container">
-                        <!-- Top panel - expands upward on hover -->
+                        <!-- Top panel - slides down from above icon -->
                         <div class="panel top-panel">
                             <div class="image-placeholder">
                                 <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Placeholder" class="placeholder-image">
@@ -210,7 +215,7 @@
                             <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Divider Icon" class="icon-image">
                         </div>
 
-                        <!-- Bottom panel - expands downward on hover -->
+                        <!-- Bottom panel - slides up from below icon -->
                         <div class="panel bottom-panel">
                             <p class="description-text">
                                 Discover our comprehensive food safety solutions and expert guidance for your business.
@@ -227,7 +232,7 @@
             <div class="column">
                 <div class="hover-wrapper">
                     <div class="hover-container">
-                        <!-- Top panel - expands upward on hover -->
+                        <!-- Top panel - slides down from above icon -->
                         <div class="panel top-panel">
                             <div class="image-placeholder">
                                 <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Placeholder" class="placeholder-image">
@@ -239,7 +244,7 @@
                             <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Divider Icon" class="icon-image">
                         </div>
 
-                        <!-- Bottom panel - expands downward on hover -->
+                        <!-- Bottom panel - slides up from below icon -->
                         <div class="panel bottom-panel">
                             <p class="description-text">
                                 Discover our comprehensive food safety solutions and expert guidance for your business.
