@@ -50,59 +50,55 @@
 
         .hover-container {
             position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             width: 100%;
         }
 
         .panel {
             position: absolute;
-            border: 1px solid #d1d5db;
-            padding: 1rem;
-            width: 100%;
-            z-index: 10;
-            opacity: 0;
-            transform: translateX(-50%) translateY(0);
-            transition: all 0.7s ease-out;
-            pointer-events: none;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            border-radius: 8px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            z-index: 0;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+            pointer-events: none;
         }
 
         .top-panel {
-            bottom: 100%;
-            left: 50%;
-            margin-bottom: 0;
-            transform: translateX(-50%) translateY(0);
-            background: linear-gradient(135deg, #c1c8d1 0%, #fefffb 100%);
-            border-radius: 20px 20px 0 0;
+            top: 0;
+            transform: translateX(-50%) translateY(16px);
+            background: linear-gradient(to top right, #c1c8d1, #fefffb);
+            padding-bottom: 4rem;
         }
 
         .bottom-panel {
-            top: 100%;
-            left: 50%;
-            margin-top: 0;
-            transform: translateX(-50%) translateY(0);
-            background: linear-gradient(135deg, #a9b1bd 0%, #dbe4e3 100%);
-            border-radius: 0 0 20px 20px;
+            bottom: 0;
+            transform: translateX(-50%) translateY(-16px);
+            background: linear-gradient(to bottom right, #a9b1bd, #dbe4e3);
+            padding-top: 4rem;
         }
 
         .hover-wrapper:hover .top-panel {
             opacity: 1;
-            transform: translateX(-50%) translateY(-8px);
+            transform: translateX(-50%) translateY(0);
             pointer-events: auto;
         }
 
         .hover-wrapper:hover .bottom-panel {
             opacity: 1;
-            transform: translateX(-50%) translateY(8px);
+            transform: translateX(-50%) translateY(0);
             pointer-events: auto;
         }
 
         .icon-container {
             position: relative;
-            z-index: 20;
+            z-index: 10;
             width: 100%;
+            display: flex;
+            justify-content: center;
         }
 
         .icon-image {
@@ -136,17 +132,22 @@
 
         .cta-button {
             display: inline-block;
-            background-color: #2563eb;
+            background-color: #708d81;
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
+            padding: 10px 20px;
+            border-radius: 8px;
             text-decoration: none;
             font-size: 0.875rem;
             transition: background-color 0.2s ease;
         }
 
         .cta-button:hover {
-            background-color: #1d4ed8;
+            background-color: #5a7267;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
         }
 
         /* Responsive adjustments */
@@ -168,24 +169,26 @@
             <div class="column">
                 <div class="hover-wrapper">
                     <div class="hover-container">
-                        <!-- Top panel - positioned above icon line -->
+                        <!-- Top panel - expands upward on hover -->
                         <div class="panel top-panel">
                             <div class="image-placeholder">
                                 <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Placeholder" class="placeholder-image">
                             </div>
                         </div>
 
-                        <!-- Center icon - stretched to full width -->
+                        <!-- Center PNG icon with horizontal separator line -->
                         <div class="icon-container">
                             <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Divider Icon" class="icon-image">
                         </div>
 
-                        <!-- Bottom panel - positioned below icon line -->
+                        <!-- Bottom panel - expands downward on hover -->
                         <div class="panel bottom-panel">
                             <p class="description-text">
                                 Discover our comprehensive food safety solutions and expert guidance for your business.
                             </p>
-                            <a href="#" class="cta-button">Learn More</a>
+                            <div class="button-container">
+                                <a href="#" class="cta-button">Learn More</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -195,24 +198,26 @@
             <div class="column">
                 <div class="hover-wrapper">
                     <div class="hover-container">
-                        <!-- Top panel - positioned above icon line -->
+                        <!-- Top panel - expands upward on hover -->
                         <div class="panel top-panel">
                             <div class="image-placeholder">
                                 <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Placeholder" class="placeholder-image">
                             </div>
                         </div>
 
-                        <!-- Center icon - stretched to full width -->
+                        <!-- Center PNG icon with horizontal separator line -->
                         <div class="icon-container">
                             <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Divider Icon" class="icon-image">
                         </div>
 
-                        <!-- Bottom panel - positioned below icon line -->
+                        <!-- Bottom panel - expands downward on hover -->
                         <div class="panel bottom-panel">
                             <p class="description-text">
                                 Discover our comprehensive food safety solutions and expert guidance for your business.
                             </p>
-                            <a href="#" class="cta-button">Learn More</a>
+                            <div class="button-container">
+                                <a href="#" class="cta-button">Learn More</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -222,24 +227,26 @@
             <div class="column">
                 <div class="hover-wrapper">
                     <div class="hover-container">
-                        <!-- Top panel - positioned above icon line -->
+                        <!-- Top panel - expands upward on hover -->
                         <div class="panel top-panel">
                             <div class="image-placeholder">
                                 <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Placeholder" class="placeholder-image">
                             </div>
                         </div>
 
-                        <!-- Center icon - stretched to full width -->
+                        <!-- Center PNG icon with horizontal separator line -->
                         <div class="icon-container">
                             <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Divider Icon" class="icon-image">
                         </div>
 
-                        <!-- Bottom panel - positioned below icon line -->
+                        <!-- Bottom panel - expands downward on hover -->
                         <div class="panel bottom-panel">
                             <p class="description-text">
                                 Discover our comprehensive food safety solutions and expert guidance for your business.
                             </p>
-                            <a href="#" class="cta-button">Learn More</a>
+                            <div class="button-container">
+                                <a href="#" class="cta-button">Learn More</a>
+                            </div>
                         </div>
                     </div>
                 </div>

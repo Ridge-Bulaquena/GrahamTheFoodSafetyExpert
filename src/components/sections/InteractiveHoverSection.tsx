@@ -4,10 +4,10 @@ import dividerIcon from '../../assets/graham-ponsaran-homepage-divider-01.png';
 const InteractiveHoverComponent: React.FC = () => {
   return (
     <div className="relative group w-full">
-      {/* Wrapper div containing the icon and panels */}
-      <div className="relative flex flex-col items-center w-full">
-        {/* Top panel - positioned above icon line */}
-        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-0 opacity-0 translate-y-0 transition-all duration-700 ease-out group-hover:opacity-100 group-hover:-translate-y-2 bg-gradient-to-br from-[#c1c8d1] to-[#fefffb] rounded-tl-[20px] rounded-tr-[20px] border border-gray-300 p-4 w-full z-10 shadow-lg">
+      {/* Hover card container */}
+      <div className="relative w-full">
+        {/* Top panel - expands upward on hover */}
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-4/5 opacity-0 translate-y-4 transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 bg-gradient-to-tr from-[#c1c8d1] to-[#fefffb] rounded-lg shadow-lg p-4 pb-16 z-0">
           <div className="bg-white/50 rounded-md h-32 mb-3 flex items-center justify-center">
             <img 
               src={dividerIcon} 
@@ -17,8 +17,8 @@ const InteractiveHoverComponent: React.FC = () => {
           </div>
         </div>
 
-        {/* Center icon - stretched to full width */}
-        <div className="relative z-20 w-full">
+        {/* Center PNG icon with horizontal separator line */}
+        <div className="relative z-10 w-full flex justify-center">
           <img 
             src={dividerIcon} 
             alt="Divider Icon" 
@@ -26,17 +26,19 @@ const InteractiveHoverComponent: React.FC = () => {
           />
         </div>
 
-        {/* Bottom panel - positioned below icon line */}
-        <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-0 opacity-0 translate-y-0 transition-all duration-700 ease-out group-hover:opacity-100 group-hover:translate-y-2 bg-gradient-to-br from-[#a9b1bd] to-[#dbe4e3] rounded-bl-[20px] rounded-br-[20px] border border-gray-300 p-4 w-full z-10 shadow-lg">
+        {/* Bottom panel - expands downward on hover */}
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 opacity-0 -translate-y-4 transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 bg-gradient-to-br from-[#a9b1bd] to-[#dbe4e3] rounded-lg shadow-lg p-4 pt-16 z-0">
           <p className="text-gray-700 text-sm mb-3">
             Discover our comprehensive food safety solutions and expert guidance for your business.
           </p>
-          <a 
-            href="#" 
-            className="inline-block bg-blue-600 text-white px-4 py-2 rounded-md text-sm hover:bg-blue-700 transition-colors duration-200"
-          >
-            Learn More
-          </a>
+          <div className="flex justify-center">
+            <a 
+              href="#" 
+              className="inline-block bg-[#708d81] text-white px-5 py-2.5 rounded-lg text-sm hover:bg-[#5a7267] transition-colors duration-200"
+            >
+              Learn More
+            </a>
+          </div>
         </div>
       </div>
     </div>
