@@ -3,7 +3,7 @@ import dividerIcon from '../../assets/graham-ponsaran-homepage-divider-01.png';
 
 const InteractiveHoverComponent: React.FC = () => {
   return (
-    <div className="relative group w-full">
+    <div className="relative group w-[400px]">
       {/* Hover card container */}
       <div className="relative w-full">
         {/* Top panel - slides down from above icon */}
