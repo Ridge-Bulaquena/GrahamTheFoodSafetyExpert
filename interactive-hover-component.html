@@ -22,8 +22,9 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 70%;
             width: 100%;
+            margin: 0 auto;
         }
 
         .three-column-layout {
@@ -44,6 +45,7 @@
         .hover-wrapper {
             position: relative;
             display: inline-block;
+            width: 100%;
         }
 
         .hover-container {
@@ -51,6 +53,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
         }
 
         .panel {
@@ -59,7 +62,7 @@
             border-radius: 8px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             padding: 1rem;
-            width: 256px;
+            width: 100%;
             z-index: 10;
             opacity: 0;
             transform: translateY(16px);
@@ -88,42 +91,15 @@
         .icon-container {
             position: relative;
             z-index: 20;
-        }
-
-        .icon-circle {
-            width: 64px;
-            height: 64px;
-            background: white;
-            border-radius: 50%;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            width: 100%;
             display: flex;
-            align-items: center;
             justify-content: center;
         }
 
         .icon-image {
-            width: 32px;
-            height: 32px;
+            width: 96px;
+            height: 96px;
             object-fit: contain;
-        }
-
-        .line-separator {
-            position: absolute;
-            top: 50%;
-            width: 32px;
-            height: 2px;
-            background-color: #d1d5db;
-            transform: translateY(-50%);
-        }
-
-        .line-left {
-            left: 0;
-            transform: translateX(-100%) translateY(-50%);
-        }
-
-        .line-right {
-            right: 0;
-            transform: translateX(100%) translateY(-50%);
         }
 
         .image-placeholder {
@@ -134,6 +110,12 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 0.75rem;
+        }
+
+        .placeholder-image {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
         }
 
         .description-text {
@@ -160,8 +142,8 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .panel {
-                width: 240px;
+            .container {
+                max-width: 90%;
             }
             
             .three-column-layout {
@@ -180,17 +162,13 @@
                         <!-- Top panel - slides up on hover -->
                         <div class="panel top-panel">
                             <div class="image-placeholder">
-                                <span style="color: #6b7280; font-size: 0.875rem;">Image Placeholder</span>
+                                <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Placeholder" class="placeholder-image">
                             </div>
                         </div>
 
-                        <!-- Center icon with horizontal line separators -->
+                        <!-- Center icon - using PNG directly -->
                         <div class="icon-container">
-                            <div class="icon-circle">
-                                <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Divider Icon" class="icon-image">
-                            </div>
-                            <div class="line-separator line-left"></div>
-                            <div class="line-separator line-right"></div>
+                            <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Divider Icon" class="icon-image">
                         </div>
 
                         <!-- Bottom panel - slides down on hover -->
@@ -206,17 +184,55 @@
 
             <!-- Second Column -->
             <div class="column">
-                <div style="text-align: center;">
-                    <h3 style="font-size: 1.25rem; font-weight: 600; color: #1f2937; margin-bottom: 1rem;">Column 2</h3>
-                    <p style="color: #6b7280;">Content for the second column goes here.</p>
+                <div class="hover-wrapper">
+                    <div class="hover-container">
+                        <!-- Top panel - slides up on hover -->
+                        <div class="panel top-panel">
+                            <div class="image-placeholder">
+                                <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Placeholder" class="placeholder-image">
+                            </div>
+                        </div>
+
+                        <!-- Center icon - using PNG directly -->
+                        <div class="icon-container">
+                            <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Divider Icon" class="icon-image">
+                        </div>
+
+                        <!-- Bottom panel - slides down on hover -->
+                        <div class="panel bottom-panel">
+                            <p class="description-text">
+                                Discover our comprehensive food safety solutions and expert guidance for your business.
+                            </p>
+                            <a href="#" class="cta-button">Learn More</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Third Column -->
             <div class="column">
-                <div style="text-align: center;">
-                    <h3 style="font-size: 1.25rem; font-weight: 600; color: #1f2937; margin-bottom: 1rem;">Column 3</h3>
-                    <p style="color: #6b7280;">Content for the third column goes here.</p>
+                <div class="hover-wrapper">
+                    <div class="hover-container">
+                        <!-- Top panel - slides up on hover -->
+                        <div class="panel top-panel">
+                            <div class="image-placeholder">
+                                <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Placeholder" class="placeholder-image">
+                            </div>
+                        </div>
+
+                        <!-- Center icon - using PNG directly -->
+                        <div class="icon-container">
+                            <img src="src/assets/graham-ponsaran-homepage-divider-01.png" alt="Divider Icon" class="icon-image">
+                        </div>
+
+                        <!-- Bottom panel - slides down on hover -->
+                        <div class="panel bottom-panel">
+                            <p class="description-text">
+                                Discover our comprehensive food safety solutions and expert guidance for your business.
+                            </p>
+                            <a href="#" class="cta-button">Learn More</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
