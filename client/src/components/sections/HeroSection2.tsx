@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import grahamPortrait from '@/assets/graham-portrait.png';
-import grahamPortrait2 from '@/assets/graham-portrait-2.png';
+import grahamPortrait from '@/assets/graham-051.png';
 
 const HeroSection2 = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -20,11 +19,10 @@ const HeroSection2 = () => {
   return (
     <section 
       ref={containerRef}
-      className="min-h-screen bg-[#EAEEF4] relative overflow-hidden flex items-center justify-center px-6 py-20"
-      style={{ backgroundColor: '#EAEEF4' }}
+      className="min-h-screen unified-section relative overflow-hidden flex items-center justify-center"
     >
       {/* Centered Box Container - Max Width 1250px */}
-      <div className="w-full max-w-[1250px] mx-auto">
+      <div className="unified-container">
         
         {/* Two Column Layout */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 xl:gap-16">
@@ -38,12 +36,7 @@ const HeroSection2 = () => {
           >
             {/* Top Descriptor */}
             <motion.div 
-              className="text-sm md:text-base font-normal text-[#848DAB] uppercase tracking-wider mb-3 md:mb-4"
-              style={{ 
-                fontFamily: 'Poppins, sans-serif',
-                fontSize: '16px',
-                letterSpacing: '3px'
-              }}
+              className="descriptor-text mb-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
@@ -57,11 +50,7 @@ const HeroSection2 = () => {
 
             {/* Name */}
             <motion.h2 
-              className="text-3xl md:text-4xl lg:text-5xl font-extralight text-[#1A1B1D] mb-3 md:mb-4"
-              style={{ 
-                fontFamily: 'Poppins, sans-serif',
-                letterSpacing: '4px'
-              }}
+              className="name-text mb-4"
               initial={{ opacity: 0, y: 20, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ 
@@ -75,12 +64,10 @@ const HeroSection2 = () => {
 
             {/* Main Headline */}
             <motion.h1 
-              className="text-6xl md:text-8xl lg:text-9xl xl:text-[120px] 2xl:text-[160px] 3xl:text-[180px] 4xl:text-[200px] font-normal mb-5 md:mb-6 leading-[0.85]"
-              style={{ fontFamily: 'League Gothic Condensed, sans-serif' }}
+              className="headline-gradient text-5xl md:text-7xl lg:text-8xl xl:text-[110px] 2xl:text-[150px] 3xl:text-[170px] 4xl:text-[190px] mb-6"
             >
               {/* First Line */}
               <motion.div
-                className="text-transparent bg-clip-text bg-gradient-to-br from-[#C7D0D3] to-[#6D7284]"
                 initial={{ opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
                 animate={{ opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" }}
                 transition={{ 
@@ -94,7 +81,6 @@ const HeroSection2 = () => {
               
               {/* Second Line */}
               <motion.div
-                className="text-transparent bg-clip-text bg-gradient-to-br from-[#C7D0D3] to-[#6D7284]"
                 initial={{ opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
                 animate={{ opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" }}
                 transition={{ 
@@ -109,8 +95,7 @@ const HeroSection2 = () => {
 
             {/* Subhead */}
             <motion.p 
-              className="text-lg md:text-xl text-[#1A1B1D] max-w-[700px] leading-relaxed mt-4 md:mt-6"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
+              className="body-text"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
@@ -135,8 +120,12 @@ const HeroSection2 = () => {
             >
               {/* First Button */}
               <motion.button
-                className="px-8 py-4 bg-[#1A1B1D] text-white font-semibold rounded-full hover:bg-[#2A2B2D] transition-colors duration-300 text-lg"
-                style={{ fontFamily: 'Poppins, sans-serif' }}
+                className="relative px-4 py-2.5 glass-button w-[220px]"
+                style={{ 
+                  fontFamily: 'Poppins, sans-serif',
+                  fontSize: '11px',
+                  letterSpacing: '1px'
+                }}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ 
@@ -144,16 +133,25 @@ const HeroSection2 = () => {
                   delay: 1.65,
                   ease: [0.22, 0.61, 0.36, 1]
                 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ 
+                  scale: 1.02, 
+                  y: -2,
+                  boxShadow: '0 6px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.4)'
+                }}
+                whileTap={{ scale: 0.98 }}
               >
-                REGISTER FOR TRAINING
+                <span className="relative z-10">REGISTER FOR TRAINING</span>
+                <div className="shine-effect"></div>
               </motion.button>
 
               {/* Second Button */}
               <motion.button
-                className="px-8 py-4 border-2 border-[#1A1B1D] text-[#1A1B1D] font-semibold rounded-full hover:bg-[#1A1B1D] hover:text-white transition-all duration-300 text-lg"
-                style={{ fontFamily: 'Poppins, sans-serif' }}
+                className="relative px-4 py-2.5 glass-button w-[220px]"
+                style={{ 
+                  fontFamily: 'Poppins, sans-serif',
+                  fontSize: '11px',
+                  letterSpacing: '1px'
+                }}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ 
@@ -161,25 +159,30 @@ const HeroSection2 = () => {
                   delay: 1.75,
                   ease: [0.22, 0.61, 0.36, 1]
                 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ 
+                  scale: 1.02, 
+                  y: -2,
+                  boxShadow: '0 6px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.4)'
+                }}
+                whileTap={{ scale: 0.98 }}
               >
-                VIEW CONSULTING SERVICES
+                <span className="relative z-10">VIEW CONSULTING SERVICES</span>
+                <div className="shine-effect"></div>
               </motion.button>
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Portrait Images */}
+          {/* Right Column - Portrait Image */}
           <motion.div 
             className="flex-1 flex justify-center items-center relative"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            {/* First Portrait Image */}
+            {/* Portrait Image */}
             <motion.div
               ref={portraitRef}
-              className="relative z-10"
+              className="relative z-0"
               style={{
                 y: prefersReducedMotion ? 0 : y,
               }}
@@ -198,62 +201,14 @@ const HeroSection2 = () => {
                   ease: "easeInOut"
                 }
               }}
-              whileHover={{ 
-                scale: 1.05,
-                rotate: 2,
-                transition: { duration: 0.3 }
-              }}
             >
               <motion.img
                 src={grahamPortrait}
                 alt="Graham Ponsaran - Food Safety Expert"
-                className="w-80 h-auto md:w-96 lg:w-[550px] xl:w-[650px] max-w-full rounded-lg shadow-2xl"
+                className="w-80 h-auto md:w-96 lg:w-[550px] xl:w-[650px] max-w-full rounded-lg"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.5 }}
-              />
-            </motion.div>
-
-            {/* Second Portrait Image - Floating with Different Animation */}
-            <motion.div
-              className="absolute z-0 -right-8 top-16 lg:-right-16 lg:top-24"
-              initial={{ opacity: 0, scale: 0.9, x: 100 }}
-              animate={{ 
-                opacity: 0.8, 
-                scale: 1,
-                x: 0,
-                y: prefersReducedMotion ? 0 : [0, -20, 0],
-              }}
-              transition={{ 
-                opacity: { duration: 0.8, delay: 1.5, ease: "easeOut" },
-                scale: { duration: 0.8, delay: 1.5, ease: "easeOut" },
-                x: { duration: 0.8, delay: 1.5, ease: "easeOut" },
-                y: prefersReducedMotion ? {} : {
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 2
-                }
-              }}
-              whileHover={{ 
-                scale: 1.1,
-                opacity: 1,
-                rotate: -3,
-                z: 20,
-                transition: { duration: 0.3 }
-              }}
-            >
-              <motion.img
-                src={grahamPortrait2}
-                alt="Graham Ponsaran - Additional Portrait"
-                className="w-48 h-auto md:w-56 lg:w-72 xl:w-80 max-w-full rounded-lg shadow-xl border-4 border-white/50"
-                initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
-                animate={{ opacity: 1, scale: 1, rotate: 5 }}
-                transition={{ duration: 1, delay: 1.2 }}
-                whileHover={{
-                  rotate: 0,
-                  transition: { duration: 0.3 }
-                }}
               />
             </motion.div>
           </motion.div>

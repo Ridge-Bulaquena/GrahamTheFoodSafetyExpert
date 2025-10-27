@@ -181,7 +181,12 @@ const GovernmentWhitepaper = () => {
           className="text-center"
         >
           <motion.button 
-            className="glass-button w-[220px]"
+            className="relative px-4 py-2.5 glass-button w-[220px]"
+            style={{ 
+              fontFamily: 'Poppins, sans-serif',
+              fontSize: '11px',
+              letterSpacing: '1px'
+            }}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, delay: 2.0, ease: [0.22, 0.61, 0.36, 1] }}
